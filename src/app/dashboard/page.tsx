@@ -1,9 +1,13 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import FloatingDashboard from "@/features/dashboard/sidebar/FloatingDashboard";
 import SearchPanel from "@/features/dashboard/sidebar/SearchSection";
-import DemoMap from "@/features/homepage/demo/MapLibre";
 import MapNavbar from "@/features/dashboard/navbar/MapNavbar";
+
+const Map = dynamic(() => import("@/features/homepage/demo/MapLibre"), {
+  ssr: false,
+});
 
 export default function Project() {
   return (
@@ -11,7 +15,7 @@ export default function Project() {
       <MapNavbar />
 
       <div className="relative flex-1">
-        <DemoMap />
+        <Map />
 
         <div className="absolute top-0 left-0 z-50">
           <SearchPanel />

@@ -11,10 +11,10 @@ export default function SearchPanel() {
   };
 
   return (
-    <div className="m-5 flex w-150 items-center overflow-hidden rounded-md bg-white text-black shadow-md">
+    <div className="m-5 flex w-150 items-center overflow-hidden rounded-md bg-white text-black">
       <input
         type="text"
-        placeholder="Search by Parcel ID"
+        placeholder="Search by ID"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         className="flex-1 px-5 py-2 outline-none"

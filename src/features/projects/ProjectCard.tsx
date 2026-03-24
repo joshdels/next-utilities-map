@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useState } from "react";
 
 import {
   launch24,
@@ -6,6 +7,7 @@ import {
   projectTemplate24,
   trash24,
 } from "@esri/calcite-ui-icons";
+import DeleteModal from "./modal/DeleteModal";
 
 interface ProjectCardProps {
   name: string;
@@ -14,8 +16,10 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ name, date, image }: ProjectCardProps) {
+  const [showDelete, setShowDelete] = useState(false);
+
   return (
-    <div className="rounded-sm border border-gray-200 bg-white p-5 transition hover:shadow-sm">
+    <div className="rounded-md bg-white p-5 shadow-sm transition hover:shadow-md">
       <div className="mb-3 flex items-center justify-between">
         <span className="text-sm uppercase">{date}</span>
       </div>
@@ -48,11 +52,25 @@ export default function ProjectCard({ name, date, image }: ProjectCardProps) {
           </svg>
         </div>
         <div>
-          <svg className="h-5 w-6" viewBox="0 0 24 24" fill="currentColor">
-            <path d={trash24} />
-          </svg>
+          <button onClick={() => setShowDelete(true)}>
+            <svg className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+              <path d={trash24} />
+            </svg>
+          </button>
         </div>
       </div>
+
+      {showDelete && (
+        <DeleteModal
+          open={showDelete}
+          name={name}
+          onClose={() => setShowDelete(false)}
+          onConfirm={() => {
+            console.log("delete", name);
+            setShowDelete(false);
+          }}
+        />
+      )}
     </div>
   );
 }

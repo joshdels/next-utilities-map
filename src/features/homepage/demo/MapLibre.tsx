@@ -12,7 +12,7 @@ export default function DemoMap() {
 
   const [lng] = useState(0);
   const [lat] = useState(0);
-  const [zoom] = useState(0);
+  const [zoom] = useState(3);
 
   const [nodeData, setNodeData] = useState<any>(null);
   const [lineData, setLineData] = useState<any>(null);
@@ -25,7 +25,7 @@ export default function DemoMap() {
       style:
         "https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json",
       center: [lng, lat],
-      zoom,
+      zoom: zoom,
       attributionControl: false,
     });
 

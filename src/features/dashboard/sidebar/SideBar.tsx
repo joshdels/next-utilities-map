@@ -14,7 +14,7 @@ export interface NavigationProps {
 const navigations: NavigationProps[] = [
   { label: "Overview", icon: clearSelection24 },
   { label: "Legends", icon: legendLeft24 },
-  { label: "Share", icon: share24 },
+  // { label: "Share", icon: share24 },
   
   // { label: "Basemap ", icon: basemap24 },
   // { label: "Water", icon: waterDrop24 },
