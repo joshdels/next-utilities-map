@@ -3,7 +3,7 @@ import SideBar from "./SideBar";
 
 export default function FloatingDashboard() {
   return (
-    <div className="m-5 flex h-[82vh] w-150 flex-row gap-5 rounded-lg bg-white text-black">
+    <div className="m-5 flex h-[90vh] w-150 flex-row gap-5 rounded-lg bg-white text-black">
       <aside className="w-[20%] rounded-lg bg-gray-200 p-3">
         <SideBar />
       </aside>

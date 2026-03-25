@@ -1,33 +1,36 @@
 import Image from "next/image";
 import { useState } from "react";
 
-import {
-  launch24,
-  pencil24,
-  projectTemplate24,
-  trash24,
-} from "@esri/calcite-ui-icons";
+import { launch24, pencil24, trash24 } from "@esri/calcite-ui-icons";
 import DeleteModal from "./modal/DeleteModal";
+import { formatDate } from "@/utils/date";
 
 interface ProjectCardProps {
   name: string;
   date: string;
   image: string;
+  onDelete: () => void;
 }
 
-export default function ProjectCard({ name, date, image }: ProjectCardProps) {
+export default function ProjectCard({
+  name,
+  date,
+  image,
+  onDelete,
+}: ProjectCardProps) {
   const [showDelete, setShowDelete] = useState(false);
 
   return (
     <div className="rounded-md bg-white p-5 shadow-sm transition hover:shadow-md">
       <div className="mb-3 flex items-center justify-between">
-        <span className="text-sm uppercase">{date}</span>
+        <span className="text-sm uppercase">{formatDate(date)}</span>
       </div>
 
       <div className="mb-4 flex items-center gap-3">
         <div className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-md">
           <Image
-            src={image || projectTemplate24}
+            loading="lazy"
+            src={image}
             alt={name}
             width={500}
             height={500}
@@ -65,10 +68,7 @@ export default function ProjectCard({ name, date, image }: ProjectCardProps) {
           open={showDelete}
           name={name}
           onClose={() => setShowDelete(false)}
-          onConfirm={() => {
-            console.log("delete", name);
-            setShowDelete(false);
-          }}
+          onConfirm={onDelete}
         />
       )}
     </div>

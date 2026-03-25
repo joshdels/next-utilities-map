@@ -20,7 +20,7 @@ export default function Project() {
           <Map />
 
           <div className="absolute top-0 left-0 z-50">
-            <SearchPanel />
+            {/* <SearchPanel /> */}
             <FloatingDashboard />
           </div>
         </div>

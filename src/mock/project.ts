@@ -1,7 +1,7 @@
 interface ProjectProps {
   name: string;
   date: string;
-  image: string;
+  image?: string;
 }
 
 const dummyImage = "/logo/logo.jpg";
