@@ -8,19 +8,21 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       await login(username, password);
-      router.push("/dashboard");
-    } catch (err: any) {
-      setError(err.message);
+      router.replace("/dashboard");
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else setError("Login failed");
     }
   };
 
   return (
     <div className="flex h-screen items-center justify-center">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleLogin}>
         <h2>Login</h2>
 
         {error && <p className="mb-4 text-red-500">{error}</p>}
