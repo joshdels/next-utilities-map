@@ -6,13 +6,22 @@ export const getProjects = async () => {
   return fetchWithAuth(BASE_URL);
 };
 
-export const createProject = async (data: {
+export interface ProjectProps {
   name: string;
   description?: string;
-}) => {
+  logo?: File | null;
+}
+
+export const createProject = async (data: ProjectProps) => {
+  const formData = new FormData();
+
+  formData.append("name", data.name);
+  if (data.description) formData.append("description", data.description);
+  if (data.logo) formData.append("logo", data.logo);
+
   return fetchWithAuth(BASE_URL, {
     method: "POST",
-    body: JSON.stringify(data),
+    body: formData,
   });
 };
 

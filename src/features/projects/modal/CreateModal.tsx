@@ -1,12 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { ProjectProps } from "@/lib/projects";
 import { X, Image as ImageIcon, FileText, Trash2, Upload } from "lucide-react";
 
 interface CreateProjectModalProps {
   open: boolean;
   onClose: () => void;
-  onConfirm: () => void;
+  onConfirm: (data: ProjectProps) => void;
 }
 
 export default function CreateProjectModal({
@@ -16,6 +17,7 @@ export default function CreateProjectModal({
 }: CreateProjectModalProps) {
   const [projectName, setProjectName] = useState("");
   const [description, setDescription] = useState("");
+  const [logo, setLogo] = useState<File | null>(null);
   const [files, setFiles] = useState<File[]>([]);
 
   if (!open) return null;
@@ -27,6 +29,20 @@ export default function CreateProjectModal({
 
   const removeFile = (index: number) => {
     setFiles((prev) => prev.filter((_, i) => i !== index));
+  };
+
+  const handleConfirm = () => {
+    onConfirm({
+      name: projectName,
+      description,
+      logo: logo,
+    });
+
+    setProjectName("");
+    setDescription("");
+    setLogo(null);
+    setFiles([]);
+    onClose();
   };
 
   return (
@@ -78,7 +94,14 @@ export default function CreateProjectModal({
                   <label className="flex cursor-pointer items-center gap-2 text-sm font-medium text-blue-600 hover:underline">
                     <Upload className="h-4 w-4" />
                     Upload Logo
-                    <input type="file" className="hidden" />
+                    <input
+                      type="file"
+                      className="hidden"
+                      onChange={(e) => {
+                        if (!e.target.files) return;
+                        setLogo(e.target.files[0]);
+                      }}
+                    />
                   </label>
                 </div>
               </div>
@@ -153,7 +176,7 @@ export default function CreateProjectModal({
           </button>
 
           <button
-            onClick={onConfirm}
+            onClick={handleConfirm}
             className="rounded-md bg-blue-600 px-5 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700"
           >
             Create Project

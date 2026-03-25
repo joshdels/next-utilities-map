@@ -6,6 +6,8 @@ import {
   deleteProject,
 } from "@/lib/projects";
 
+import { ProjectProps } from "@/lib/projects";
+
 export const useProjects = () => {
   const [projects, setProjects] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -30,17 +32,14 @@ export const useProjects = () => {
     }
   }, []);
 
-  const addProject = useCallback(
-    async (data: { name: string; description?: string }) => {
-      try {
-        const newProject = await createProject(data);
-        setProjects((prev) => [...prev, newProject]);
-      } catch (err) {
-        setError("Failed to create project");
-      }
-    },
-    [],
-  );
+  const addProject = useCallback(async (data: ProjectProps) => {
+    try {
+      const newProject = await createProject(data);
+      setProjects((prev) => [...prev, newProject]);
+    } catch (err) {
+      setError("Failed to create project");
+    }
+  }, []);
 
   const editProject = useCallback(
     async (id: number, data: { name?: string; description?: string }) => {

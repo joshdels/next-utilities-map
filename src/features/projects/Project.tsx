@@ -4,7 +4,7 @@ import ProjectCreate from "./ProjectCreate";
 import { useProjects } from "@/hooks/useProject";
 
 export default function Projects() {
-  const { projects, removeProject, loading, error } = useProjects();
+  const { projects, removeProject, loading, error, addProject } = useProjects();
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
@@ -19,7 +19,7 @@ export default function Projects() {
         <div className="w-full sm:w-150">{/* <ProjectSearch /> */}</div>
 
         <div className="w-full sm:w-auto">
-          <ProjectCreate />
+          <ProjectCreate onCreate={addProject} />
         </div>
       </div>
 

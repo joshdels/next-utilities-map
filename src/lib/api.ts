@@ -3,11 +3,14 @@ import { getAccessToken, logout } from "./auth";
 export const fetchWithAuth = async (url: string, options: RequestInit = {}) => {
   const token = getAccessToken();
 
-  const headers = {
-    "Content-Type": "application/json",
+  const headers: any = {
     Authorization: token ? `Bearer ${token}` : "",
     ...options.headers,
   };
+
+  if (options.body && !(options.body instanceof FormData)) {
+    headers["Content-Type"] = "application/json";
+  }
 
   const res = await fetch(url, { ...options, headers });
 

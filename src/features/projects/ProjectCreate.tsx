@@ -1,8 +1,13 @@
 import { plus24 } from "@esri/calcite-ui-icons";
 import { useState } from "react";
 import CreateProjectModal from "./modal/CreateModal";
+import { ProjectProps } from "@/lib/projects";
 
-export default function ProjectCreate() {
+export interface ProjectCreateProps {
+  onCreate: (data: ProjectProps) => Promise<void>;
+}
+
+export default function ProjectCreate({ onCreate }: ProjectCreateProps) {
   const [showCreate, setShowCreate] = useState(false);
 
   return (
@@ -21,9 +26,8 @@ export default function ProjectCreate() {
         <CreateProjectModal
           open={showCreate}
           onClose={() => setShowCreate(false)}
-          onConfirm={() => {
-            console.log("Created Project");
-            setShowCreate(false);
+          onConfirm={async (data) => {
+            await onCreate(data);
           }}
         />
       )}
