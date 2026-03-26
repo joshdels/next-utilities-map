@@ -6,6 +6,7 @@ import { X, Image as ImageIcon, FileText, Trash2, Upload } from "lucide-react";
 
 interface EditModalProps {
   name: string;
+  imageUrl?: string;
   open: boolean;
   onClose: () => void;
   onConfirm: (data: ProjectProps) => void;
@@ -13,6 +14,7 @@ interface EditModalProps {
 
 export default function EditModal({
   name,
+  imageUrl,
   open,
   onClose,
   onConfirm,
@@ -21,14 +23,29 @@ export default function EditModal({
   const [description, setDescription] = useState("");
   const [logo, setLogo] = useState<File | null>(null);
   const [files, setFiles] = useState<File[]>([]);
+  const [preview, setPreview] = useState<string | undefined>(imageUrl);
 
   useEffect(() => {
     if (open) {
       setProjectName(name);
+      setPreview(imageUrl);
+      setLogo(null);
     }
-  }, [name, open]);
+  }, [name, imageUrl, open]);
 
   if (!open) return null;
+
+  const handleLogoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.files) return;
+    const file = e.target.files[0];
+    if (!file.type.startsWith("image/")) {
+      alert("Only image files are allowed!");
+      return;
+    }
+    setLogo(file);
+    setPreview(URL.createObjectURL(file));
+    e.target.value = "";
+  };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) return;
@@ -84,24 +101,41 @@ export default function EditModal({
               </label>
 
               <div className="flex items-center gap-5">
-                <div className="flex h-20 w-20 items-center justify-center rounded-xl border border-dashed border-gray-300 bg-gray-50">
-                  <ImageIcon className="h-6 w-6 text-gray-400" />
+                <div className="relative flex h-20 w-20 items-center justify-center rounded-md border border-dashed border-gray-300 bg-gray-50">
+                  {preview ? (
+                    <>
+                      <img
+                        src={preview}
+                        alt={name}
+                        className="h-full w-full rounded-md object-cover"
+                      />
+                      <button
+                        onClick={() => {
+                          setLogo(null);
+                          setPreview(undefined);
+                        }}
+                        className="absolute top-1 right-1 rounded-full bg-white p-1 text-gray-500 shadow hover:text-red-500"
+                      >
+                        <X className="h-3 w-3" />
+                      </button>
+                    </>
+                  ) : (
+                    <ImageIcon className="h-6 w-6 text-gray-400" />
+                  )}
                 </div>
 
                 <div className="space-y-2">
                   <p className="text-sm text-gray-500">
-                    Recommended 512 x 512px
+                    Recommended 512 x 512px png/jpg
                   </p>
                   <label className="flex cursor-pointer items-center gap-2 text-sm font-medium text-blue-600 hover:underline">
                     <Upload className="h-4 w-4" />
                     Upload Logo
                     <input
                       type="file"
+                      accept="image/*"
                       className="hidden"
-                      onChange={(e) => {
-                        if (!e.target.files) return;
-                        setLogo(e.target.files[0]);
-                      }}
+                      onChange={handleLogoUpload}
                     />
                   </label>
                 </div>

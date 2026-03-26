@@ -22,6 +22,12 @@ export default function CreateProjectModal({
 
   if (!open) return null;
 
+  const handleLogoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.files) return;
+    setLogo(e.target.files[0]);
+    e.target.value = "";
+  };
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) return;
     setFiles((prev) => [...prev, ...Array.from(e.target.files!)]);
@@ -83,13 +89,28 @@ export default function CreateProjectModal({
               </label>
 
               <div className="flex items-center gap-5">
-                <div className="flex h-20 w-20 items-center justify-center rounded-xl border border-dashed border-gray-300 bg-gray-50">
-                  <ImageIcon className="h-6 w-6 text-gray-400" />
+                <div className="relative flex h-20 w-20 items-center justify-center rounded-md border border-dashed border-gray-300 bg-gray-50">
+                  {logo ? (
+                    <>
+                      <img
+                        src={URL.createObjectURL(logo)}
+                        className="h-full w-full rounded-md object-cover"
+                      />
+                      <button
+                        onClick={() => setLogo(null)}
+                        className="absolute top-1 right-1 rounded-full bg-white p-1 text-gray-500 shadow hover:text-red-500"
+                      >
+                        <X className="h-3 w-3" />
+                      </button>
+                    </>
+                  ) : (
+                    <ImageIcon className="h-6 w-6 text-gray-400" />
+                  )}
                 </div>
 
                 <div className="space-y-2">
                   <p className="text-sm text-gray-500">
-                    Recommended 512 x 512px
+                    Recommended 512 x 512px png/jpg
                   </p>
                   <label className="flex cursor-pointer items-center gap-2 text-sm font-medium text-blue-600 hover:underline">
                     <Upload className="h-4 w-4" />
@@ -97,10 +118,7 @@ export default function CreateProjectModal({
                     <input
                       type="file"
                       className="hidden"
-                      onChange={(e) => {
-                        if (!e.target.files) return;
-                        setLogo(e.target.files[0]);
-                      }}
+                      onChange={handleLogoUpload}
                     />
                   </label>
                 </div>

@@ -7,6 +7,7 @@ import { formatDate } from "@/utils/date";
 import EditModal from "./modal/EditModal";
 import { ProjectProps } from "@/lib/projects";
 import { Project } from "next/dist/build/swc/types";
+import { ImageIcon } from "lucide-react";
 
 interface ProjectCardProps {
   id: number;
@@ -41,14 +42,20 @@ export default function ProjectCard({
 
       <div className="mb-4 flex items-center gap-3">
         <div className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-md">
-          <Image
-            loading="lazy"
-            src={image}
-            alt={name}
-            width={500}
-            height={500}
-            className="h-full w-full object-cover"
-          />
+          {image ? (
+            <Image
+              loading="lazy"
+              src={image}
+              alt={name}
+              width={500}
+              height={500}
+              className="h-full w-full object-cover"
+            />
+          ) : (
+            <div className="flex h-20 w-20 items-center justify-center rounded-md border border-dashed border-gray-300 bg-gray-50">
+              <ImageIcon className="h-8 w-8 text-gray-400" />
+            </div>
+          )}
         </div>
 
         <div>
@@ -91,6 +98,7 @@ export default function ProjectCard({
         <EditModal
           open={showEdit}
           name={name}
+          imageUrl={image}
           onClose={() => setShowEdit(false)}
           onConfirm={handleEdit}
         />
