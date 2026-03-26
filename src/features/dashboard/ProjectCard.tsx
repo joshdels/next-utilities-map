@@ -6,7 +6,8 @@ import DeleteModal from "./modal/DeleteModal";
 import { formatDate } from "@/utils/date";
 import EditModal from "./modal/EditModal";
 import { ProjectProps } from "@/lib/projects";
-import { Project } from "next/dist/build/swc/types";
+import { useRouter } from "next/navigation";
+
 import { ImageIcon } from "lucide-react";
 
 interface ProjectCardProps {
@@ -28,10 +29,15 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   const [showDelete, setShowDelete] = useState(false);
   const [showEdit, setShowEdit] = useState(false);
+  const router = useRouter();
 
   const handleEdit = (data: ProjectProps) => {
     onEdit(id, data);
     setShowEdit(false);
+  };
+
+  const handleLaunch = () => {
+    router.push(`/dashboard/map/${id}`);
   };
 
   return (
@@ -63,6 +69,7 @@ export default function ProjectCard({
         </div>
       </div>
 
+      {/* I think ma optimize pani using index/map para observed DRY */}
       <div className="mt-10 flex items-center justify-between gap-2 px-10">
         <div>
           <button onClick={() => setShowEdit(true)}>
@@ -72,9 +79,11 @@ export default function ProjectCard({
           </button>
         </div>
         <div>
-          <svg className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-            <path d={launch24} />
-          </svg>
+          <button onClick={handleLaunch}>
+            <svg className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+              <path d={launch24} />
+            </svg>
+          </button>
         </div>
         <div>
           <button onClick={() => setShowDelete(true)}>

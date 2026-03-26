@@ -4,8 +4,8 @@ import { usePathname } from "next/navigation";
 import { projectTemplate24, utilityNetwork24 } from "@esri/calcite-ui-icons";
 
 const navigations = [
-  { label: "Project", icon: projectTemplate24, path: "/projects" },
-  { label: "Utility Map", icon: utilityNetwork24, path: "/dashboard" },
+  { label: "Project", icon: projectTemplate24, path: "/dashboard" },
+  { label: "Utility Map", icon: utilityNetwork24, path: "/dashboard/map" },
 ];
 
 export default function Navigation() {
@@ -14,7 +14,10 @@ export default function Navigation() {
   return (
     <div className="flex items-center gap-10">
       {navigations.map((nav, index) => {
-        const isActive = pathname.startsWith(nav.path);
+        const isActive =
+          nav.path === "/dashboard"
+            ? pathname === "/dashboard"
+            : pathname.startsWith(nav.path);
 
         return (
           <Link
