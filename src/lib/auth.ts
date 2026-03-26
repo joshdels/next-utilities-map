@@ -1,5 +1,7 @@
+const BASE_URL = "http://localhost:8000/api/token/";
+
 export const login = async (username: string, password: string) => {
-  const res = await fetch("http://localhost:8000/api/token/", {
+  const res = await fetch(BASE_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ username, password }),
