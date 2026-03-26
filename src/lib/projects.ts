@@ -25,13 +25,16 @@ export const createProject = async (data: ProjectProps) => {
   });
 };
 
-export const updateProject = async (
-  id: number,
-  data: { number?: string; description?: string },
-) => {
+export const updateProject = async (id: number, data: ProjectProps) => {
+  const formData = new FormData();
+
+  formData.append("name", data.name);
+  if (data.description) formData.append("description", data.description);
+  if (data.logo) formData.append("logo", data.logo);
+
   return fetchWithAuth(`${BASE_URL}${id}/`, {
-    method: "PUT",
-    body: JSON.stringify(data),
+    method: "PATCH",
+    body: formData,
   });
 };
 

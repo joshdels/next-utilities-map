@@ -41,14 +41,11 @@ export const useProjects = () => {
     }
   }, []);
 
-  const editProject = useCallback(
-    async (id: number, data: { name?: string; description?: string }) => {
-      const updated = await updateProject(id, data);
+  const editProject = async (id: number, data: ProjectProps) => {
+    const updated = await updateProject(id, data);
 
-      setProjects((prev) => prev.map((p) => (p.id === id ? updated : p)));
-    },
-    [],
-  );
+    setProjects((prev) => prev.map((p) => (p.id === id ? updated : p)));
+  };
 
   const removeProject = useCallback(async (id: number) => {
     await deleteProject(id);

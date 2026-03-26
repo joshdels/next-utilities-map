@@ -2,15 +2,21 @@ import ProjectCard from "./ProjectCard";
 import ProjectSearch from "./ProjectSearch";
 import ProjectCreate from "./ProjectCreate";
 import { useProjects } from "@/hooks/useProject";
+import { ProjectProps } from "@/lib/projects";
 
 export default function Projects() {
-  const { projects, removeProject, loading, error, addProject } = useProjects();
+  const { projects, removeProject, loading, error, addProject, editProject } =
+    useProjects();
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
 
   const handleDelete = (id: number) => {
     removeProject(id);
+  };
+
+  const handleEdit = (id: number, data: ProjectProps) => {
+    editProject(id, data);
   };
 
   return (
@@ -27,10 +33,12 @@ export default function Projects() {
         {projects.map((project) => (
           <ProjectCard
             key={project.id}
+            id={project.id}
             name={project.name}
             date={project.created_at}
             image={project.logo}
             onDelete={() => handleDelete(project.id)}
+            onEdit={handleEdit}
           />
         ))}
       </div>

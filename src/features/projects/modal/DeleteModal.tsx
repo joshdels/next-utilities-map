@@ -27,7 +27,7 @@ export default function DeleteModal({
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/10 backdrop-blur-sm">
       <div className="w-full max-w-lg rounded-md bg-white p-6 shadow-lg">
         <h1 className="text-lg font-semibold text-gray-900">
-          Delete {name || "this item"}?
+          Delete {`"${name}"` || "this item"}?
         </h1>
 
         <p className="mt-2 text-sm text-gray-500">

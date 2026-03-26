@@ -15,13 +15,17 @@ export const fetchWithAuth = async (url: string, options: RequestInit = {}) => {
   const res = await fetch(url, { ...options, headers });
 
   if (res.status === 401) {
-    logout();
-    throw new Error("Unauthorized. Please login again.");
+    const errorData = await res.json().catch(() => null);
+    if (errorData?.detail?.toLowerCase().includes("token")) {
+      logout();
+    }
+    throw new Error(errorData?.detail || "Unauthorized");
   }
 
   if (!res.ok) {
     const errorData = await res.json().catch(() => null);
-    throw new Error(errorData?.detail || "Request failed");
+    console.error("API ERROR:", errorData);
+    throw new Error(JSON.stringify(errorData));
   }
 
   const text = await res.text();
