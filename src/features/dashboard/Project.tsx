@@ -5,7 +5,7 @@ import { useProjects } from "@/hooks/useProject";
 import { ProjectProps } from "@/lib/projects";
 
 export default function Projects() {
-  const { projects, removeProject, loading, error, addProject, editProject } =
+  const { projects, addProject, editProject, removeProject, loading, error } =
     useProjects();
 
   if (loading) return <p>Loading...</p>;
@@ -35,8 +35,10 @@ export default function Projects() {
             key={project.id}
             id={project.id}
             name={project.name}
+            description={project.description}
             date={project.created_at}
             image={project.logo}
+            files={project.file}
             onDelete={() => handleDelete(project.id)}
             onEdit={handleEdit}
           />

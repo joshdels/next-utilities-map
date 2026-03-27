@@ -1,20 +1,21 @@
 import Image from "next/image";
 import { useState } from "react";
-
-import { launch24, pencil24, trash24 } from "@esri/calcite-ui-icons";
-import DeleteModal from "./modal/DeleteModal";
-import { formatDate } from "@/utils/date";
-import EditModal from "./modal/EditModal";
-import { ProjectProps } from "@/lib/projects";
 import { useRouter } from "next/navigation";
 
+import DeleteModal from "./modal/DeleteModal";
+import EditModal from "./modal/EditModal";
+import { formatDate } from "@/utils/date";
+import { ProjectProps } from "@/lib/projects";
 import { ImageIcon } from "lucide-react";
+import { launch24, pencil24, trash24 } from "@esri/calcite-ui-icons";
 
 interface ProjectCardProps {
   id: number;
   name: string;
   date: string;
   image: string;
+  description: string;
+  files: File[];
   onDelete: () => void;
   onEdit: (id: number, data: ProjectProps) => void;
 }
@@ -24,7 +25,9 @@ export default function ProjectCard({
   name,
   date,
   image,
+  description,
   onDelete,
+  files,
   onEdit,
 }: ProjectCardProps) {
   const [showDelete, setShowDelete] = useState(false);
@@ -108,6 +111,8 @@ export default function ProjectCard({
           open={showEdit}
           name={name}
           imageUrl={image}
+          files={files}
+          description={description}
           onClose={() => setShowEdit(false)}
           onConfirm={handleEdit}
         />

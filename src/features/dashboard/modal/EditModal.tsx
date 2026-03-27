@@ -7,6 +7,8 @@ import { X, Image as ImageIcon, FileText, Trash2, Upload } from "lucide-react";
 interface EditModalProps {
   name: string;
   imageUrl?: string;
+  description?: string;
+  files?: File[];
   open: boolean;
   onClose: () => void;
   onConfirm: (data: ProjectProps) => void;
@@ -16,11 +18,13 @@ export default function EditModal({
   name,
   imageUrl,
   open,
+  description: intialdescription,
+  files: initialFiles,
   onClose,
   onConfirm,
 }: EditModalProps) {
   const [projectName, setProjectName] = useState(name);
-  const [description, setDescription] = useState("");
+  const [description, setDescription] = useState(intialdescription);
   const [logo, setLogo] = useState<File | null>(null);
   const [files, setFiles] = useState<File[]>([]);
   const [preview, setPreview] = useState<string | undefined>(imageUrl);
@@ -28,10 +32,12 @@ export default function EditModal({
   useEffect(() => {
     if (open) {
       setProjectName(name);
+      setDescription(intialdescription);
+      setFiles(initialFiles || []);
       setPreview(imageUrl);
       setLogo(null);
     }
-  }, [name, imageUrl, open]);
+  }, [name, intialdescription, initialFiles, imageUrl, open]);
 
   if (!open) return null;
 
@@ -48,8 +54,9 @@ export default function EditModal({
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (!e.target.files) return;
-    setFiles((prev) => [...prev, ...Array.from(e.target.files!)]);
+    const selectedFiles = e.target.files;
+    if (!selectedFiles) return;
+    setFiles((prev) => [...prev, ...Array.from(selectedFiles)]);
   };
 
   const removeFile = (index: number) => {
@@ -61,7 +68,7 @@ export default function EditModal({
       name: projectName,
       description,
       logo,
-      // files,
+      files,
     });
   };
 

@@ -10,6 +10,7 @@ export interface ProjectProps {
   name: string;
   description?: string;
   logo?: File | null;
+  files?: File[];
 }
 
 export const createProject = async (data: ProjectProps) => {
@@ -18,6 +19,9 @@ export const createProject = async (data: ProjectProps) => {
   formData.append("name", data.name);
   if (data.description) formData.append("description", data.description);
   if (data.logo) formData.append("logo", data.logo);
+  if (data.files) {
+    data.files.forEach((file) => formData.append("file", file));
+  }
 
   return fetchWithAuth(BASE_URL, {
     method: "POST",
@@ -31,6 +35,9 @@ export const updateProject = async (id: number, data: ProjectProps) => {
   formData.append("name", data.name);
   if (data.description) formData.append("description", data.description);
   if (data.logo) formData.append("logo", data.logo);
+  if (data.files) {
+    data.files.forEach((file) => formData.append("file", file));
+  }
 
   return fetchWithAuth(`${BASE_URL}${id}/`, {
     method: "PATCH",

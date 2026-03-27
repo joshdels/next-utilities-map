@@ -37,11 +37,12 @@ export default function CreateProjectModal({
     setFiles((prev) => prev.filter((_, i) => i !== index));
   };
 
-  const handleConfirm = () => {
+  const handleCreate = () => {
     onConfirm({
       name: projectName,
       description,
-      logo: logo,
+      logo,
+      files,
     });
 
     setProjectName("");
@@ -194,7 +195,7 @@ export default function CreateProjectModal({
           </button>
 
           <button
-            onClick={handleConfirm}
+            onClick={handleCreate}
             className="rounded-md bg-blue-600 px-5 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700"
           >
             Create Project
