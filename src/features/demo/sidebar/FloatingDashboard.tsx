@@ -1,9 +1,15 @@
 import { useState } from "react";
-import SideBar from "./SideBar";
 import { ChevronsRight, X } from "lucide-react";
+
+import SideBar from "./SideBar";
+import { useTabStore } from "@/store/useTabStore";
+import OverviewSection from "./Overview";
+import LegendSection from "./Legend";
+import { capitalizeFirstLetter } from "@/utils/capitalizeFirstLetter";
 
 export default function FloatingDashboard() {
   const [isOpen, setIsOpen] = useState(false);
+  const { activeTab } = useTabStore();
 
   const toggleOpen = () => {
     setIsOpen((prev) => !prev);
@@ -24,7 +30,7 @@ export default function FloatingDashboard() {
       >
         <section className="mb-5 flex flex-row justify-between">
           <h1 className="overflow-hidden text-2xl font-black whitespace-nowrap">
-            Project Overview
+            Project {activeTab && capitalizeFirstLetter(activeTab)}
           </h1>
 
           <button onClick={toggleOpen}>
@@ -32,7 +38,10 @@ export default function FloatingDashboard() {
           </button>
         </section>
 
-        <section>{/* <OwnerInformation /> */}</section>
+        <section>
+          {activeTab == "overview" && <OverviewSection />}
+          {activeTab == "legend" && <LegendSection />}
+        </section>
       </main>
 
       {!isOpen && (

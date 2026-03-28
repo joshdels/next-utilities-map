@@ -20,6 +20,11 @@ interface ProjectCardProps {
   onEdit: (id: number, data: ProjectProps) => void;
 }
 
+interface ButtonProps {
+  icon: string;
+  action: () => void;
+}
+
 export default function ProjectCard({
   id,
   name,
@@ -39,9 +44,26 @@ export default function ProjectCard({
     setShowEdit(false);
   };
 
+  const showEditButton = () => {
+    setShowEdit(true);
+  };
+
   const handleLaunch = () => {
     router.push(`/dashboard/map/${id}`);
   };
+
+  const handleDelete = () => {
+    setShowDelete(true);
+  };
+
+  const navigationButtons: ButtonProps[] = [
+    {
+      icon: pencil24,
+      action: showEditButton,
+    },
+    { icon: launch24, action: handleLaunch },
+    { icon: trash24, action: handleDelete },
+  ];
 
   return (
     <div className="rounded-md bg-white p-5 shadow-sm transition hover:shadow-md">
@@ -72,29 +94,18 @@ export default function ProjectCard({
         </div>
       </div>
 
-      {/* I think ma optimize pani using index/map para observed DRY */}
       <div className="mt-10 flex items-center justify-between gap-2 px-10">
-        <div>
-          <button onClick={() => setShowEdit(true)}>
+        {navigationButtons.map((item, index) => (
+          <button
+            key={index}
+            onClick={item.action}
+            className="rounded p-2 hover:bg-gray-100"
+          >
             <svg className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-              <path d={pencil24} />
+              <path d={item.icon} />
             </svg>
           </button>
-        </div>
-        <div>
-          <button onClick={handleLaunch}>
-            <svg className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-              <path d={launch24} />
-            </svg>
-          </button>
-        </div>
-        <div>
-          <button onClick={() => setShowDelete(true)}>
-            <svg className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-              <path d={trash24} />
-            </svg>
-          </button>
-        </div>
+        ))}
       </div>
 
       {showDelete && (
