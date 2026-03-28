@@ -2,7 +2,6 @@ import {
   basemap24,
   clearSelection24,
   legendLeft24,
-  share24,
   waterDrop24,
 } from "@esri/calcite-ui-icons";
 
@@ -14,8 +13,7 @@ export interface NavigationProps {
 const navigations: NavigationProps[] = [
   { label: "Overview", icon: clearSelection24 },
   { label: "Legends", icon: legendLeft24 },
-  // { label: "Share", icon: share24 },
-  
+
   // { label: "Basemap ", icon: basemap24 },
   // { label: "Water", icon: waterDrop24 },
 ];

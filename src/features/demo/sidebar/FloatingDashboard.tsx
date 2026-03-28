@@ -3,7 +3,7 @@ import SideBar from "./SideBar";
 import { ChevronsRight, X } from "lucide-react";
 
 export default function FloatingDashboard() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = () => {
     setIsOpen((prev) => !prev);
@@ -11,7 +11,7 @@ export default function FloatingDashboard() {
 
   return (
     <div
-      className={`m-6 flex h-[87vh] flex-row gap-5 rounded-lg bg-white text-black shadow-md transition-all duration-300 ease-in-out ${isOpen ? "w-150" : "w-30"}`}
+      className={`m-6 flex h-[85vh] flex-row gap-5 rounded-lg bg-white text-black shadow-md transition-all duration-300 ease-in-out ${isOpen ? "w-150" : "w-30"}`}
     >
       <aside
         className={`rounded-md p-3 ${isOpen ? "bg-gray-200" : "bg-white"} `}
