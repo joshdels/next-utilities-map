@@ -1,7 +1,26 @@
 "use client";
 
-import DemoMap from "@/features/homepage/demo/DemoMap";
+import DemoNavbar from "@/features/demo/navbar/DemoNavbar";
+import FloatingDashboard from "@/features/demo/sidebar/FloatingDashboard";
+
+import dynamic from "next/dynamic";
+
+const Map = dynamic(() => import("@/features/demo/DemoMap"), {
+  ssr: false,
+});
 
 export default function DemoPage() {
-  return <DemoMap/>;
+  return (
+    <div className="flex h-screen flex-col">
+      <DemoNavbar />
+
+      <div className="relative flex-1">
+        <Map />
+
+        <div className="absolute top-0 left-0 z-50">
+          <FloatingDashboard />
+        </div>
+      </div>
+    </div>
+  );
 }
