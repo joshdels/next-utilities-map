@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import type { Map } from "maplibre-gl";
+import type { RefObject } from "react";
 
 interface IconOptions {
   iconFolder?: string;
@@ -13,11 +14,13 @@ interface IconOptions {
 }
 
 export function useMapIcons(
-  map: Map | null,
+  mapRef: RefObject<Map | null>,
   nodeData: any,
   options?: IconOptions,
 ) {
   useEffect(() => {
+    const map = mapRef.current;
+
     if (!map || !nodeData) return;
 
     const {
@@ -30,18 +33,21 @@ export function useMapIcons(
     } = options || {};
 
     const nodeTypes = new Set<string>();
+
     nodeData.features.forEach((f: any) => {
       const t = f.properties?.type;
       if (t) nodeTypes.add(t);
     });
 
     nodeTypes.forEach(async (iconName) => {
+      // ✅ prevent duplicate images
       if (map.hasImage(iconName)) return;
 
       try {
         const res = await fetch(`${iconFolder}/${iconName}.svg`);
         let svgText = await res.text();
 
+        // normalize icon color
         svgText = svgText.replace(/(fill|stroke)=".*?"/g, `$1="#ffffff"`);
         svgText = svgText.replace(
           /<svg/,
@@ -56,29 +62,31 @@ export function useMapIcons(
           const iconSize = size * iconScale;
           const iconOffset = (size - iconSize) / 2;
 
-          const ctx = document.createElement("canvas").getContext("2d")!;
-          ctx.canvas.width = size;
-          ctx.canvas.height = size;
+          const canvas = document.createElement("canvas");
+          const ctx = canvas.getContext("2d")!;
+
+          canvas.width = size;
+          canvas.height = size;
 
           const bgColor = typeColors[iconName] || "#FF0000";
 
-          // Draw background circle (colored)
+          // 🎨 background circle
           ctx.fillStyle = bgColor;
           ctx.beginPath();
           ctx.arc(radius, radius, radius - borderWidth, 0, Math.PI * 2);
           ctx.fill();
 
-          // Draw border ring
+          // 🟢 border
           ctx.strokeStyle = borderColor;
           ctx.lineWidth = borderWidth;
           ctx.beginPath();
           ctx.arc(radius, radius, radius - borderWidth / 2, 0, Math.PI * 2);
           ctx.stroke();
 
-          // Draw white icon centered
+          // 🧩 icon
           ctx.drawImage(img, iconOffset, iconOffset, iconSize, iconSize);
 
-          // Add to MapLibre
+          // 🚀 add to map
           map.addImage(iconName, {
             width: size,
             height: size,
@@ -86,10 +94,12 @@ export function useMapIcons(
           });
         };
 
-        img.onerror = () => console.warn(`Failed to load icon: ${iconName}`);
+        img.onerror = () => {
+          console.warn(`Failed to load icon: ${iconName}`);
+        };
       } catch (err) {
         console.error("Error loading icon", iconName, err);
       }
     });
-  }, [map, nodeData, options]);
+  }, [mapRef, nodeData, options]);
 }

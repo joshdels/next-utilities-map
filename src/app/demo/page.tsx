@@ -5,7 +5,7 @@ import FloatingDashboard from "@/features/demo/sidebar/FloatingDashboard";
 
 import dynamic from "next/dynamic";
 
-const Map = dynamic(() => import("@/features/demo/DemoMap"), {
+const Map = dynamic(() => import("@/features/demo/map/DemoMap"), {
   ssr: false,
 });
 
