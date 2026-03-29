@@ -40,3 +40,9 @@ export const nodeLayer: SymbolLayerSpecification = {
     "icon-allow-overlap": true,
   },
 };
+
+export const NODE_TYPE_COLORS: Record<string, string> = {
+  hydrant: "#FF0000",
+  valve: "#0000FF",
+  pump: "#CC5500",
+};

@@ -12,11 +12,12 @@ export default function DemoMap() {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useMap(containerRef);
 
-  // Subscribe to global data
   const lines = useGeoJSONStore((state) => state.lines);
   const nodes = useGeoJSONStore((state) => state.nodes);
 
-  // Add custom icons for nodes
+  console.log(lines);
+  console.log(nodes);
+
   useMapIcons(mapRef, nodes, {
     radius: 20,
     iconScale: 0.6,
@@ -28,13 +29,11 @@ export default function DemoMap() {
     },
   });
 
-  // Add / update layers whenever data changes
   useEffect(() => {
     const map = mapRef.current;
     if (!map || !lines || !nodes) return;
 
     const addLayers = () => {
-      // Lines
       if (!map.getSource("lines-data")) {
         map.addSource("lines-data", { type: "geojson", data: lines });
       } else {
@@ -43,7 +42,6 @@ export default function DemoMap() {
         );
       }
 
-      // Nodes
       if (!map.getSource("nodes-data")) {
         map.addSource("nodes-data", { type: "geojson", data: nodes });
       } else {

@@ -17,16 +17,16 @@ export default function FloatingDashboard() {
 
   return (
     <div
-      className={`m-6 flex h-[85vh] flex-row gap-5 rounded-lg bg-white text-black shadow-md transition-all duration-300 ease-in-out ${isOpen ? "w-150" : "w-30"}`}
+      className={`m-6 flex h-[85vh] flex-row gap-5 rounded-lg bg-white text-black shadow-md transition-all duration-300 ease-in-out ${isOpen ? "w-120" : "w-30"}`}
     >
       <aside
-        className={`rounded-md p-3 ${isOpen ? "bg-gray-200" : "bg-white"} `}
+        className={`rounded-md p-2 ${isOpen ? "bg-gray-200" : "bg-white"} `}
       >
         <SideBar />
       </aside>
 
       <main
-        className={`flex-1 rounded-lg bg-white p-3 transition-all duration-300 ease-in-out ${isOpen ? "translate-x-0 opacity-100" : "pointer-events-none -translate-x-5 opacity-0"}`}
+        className={`flex-1 rounded-lg bg-white p-5 transition-all duration-300 ease-in-out ${isOpen ? "translate-x-0 opacity-100" : "pointer-events-none -translate-x-5 opacity-0"}`}
       >
         <section className="mb-5 flex flex-row justify-between">
           <h1 className="overflow-hidden text-2xl font-black whitespace-nowrap">

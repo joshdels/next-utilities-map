@@ -40,14 +40,12 @@ export function useMapIcons(
     });
 
     nodeTypes.forEach(async (iconName) => {
-      // ✅ prevent duplicate images
       if (map.hasImage(iconName)) return;
 
       try {
         const res = await fetch(`${iconFolder}/${iconName}.svg`);
         let svgText = await res.text();
 
-        // normalize icon color
         svgText = svgText.replace(/(fill|stroke)=".*?"/g, `$1="#ffffff"`);
         svgText = svgText.replace(
           /<svg/,
