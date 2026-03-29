@@ -13,6 +13,15 @@ interface NodeLegendItem {
   icon: string;
 }
 
+/**
+ * Derives legend data from GeoJSON stored in Zustand.
+ *
+ * - Extracts unique feature types from lines and nodes
+ * - Maps line types to colors using the Mapbox style layer
+ * - Maps node types to icon identifiers
+ *
+ * @returns Object containing line and node legend items
+ */
 export function useLegend() {
   const lines = useGeoJSONStore((state) => state.lines);
   const nodes = useGeoJSONStore((state) => state.nodes);

@@ -8,8 +8,17 @@ import {
 
 import { ProjectProps } from "@/lib/projects";
 
+/**
+ * Manages project data with full CRUD operations.
+ *
+ * - Fetches projects on mount
+ * - Provides methods to create, update, and delete projects
+ * - Handles loading and error states
+ *
+ * @returns Project state and CRUD actions
+ */
 export const useProjects = () => {
-  const [projects, setProjects] = useState<any[]>([]);
+  const [projects, setProjects] = useState<ProjectProps[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 

@@ -13,6 +13,19 @@ interface IconOptions {
   borderColor?: string;
 }
 
+/**
+ * Generates and registers custom map icons from GeoJSON node types.
+ *
+ * - Extracts unique `type` values from node features
+ * - Loads corresponding SVG icons from a folder
+ * - Applies color overrides and styling
+ * - Renders icons onto a canvas (background + border + symbol)
+ * - Registers them as MapLibre images for use in layers
+ *
+ * @param mapRef - Reference to the MapLibre instance
+ * @param nodeData - GeoJSON FeatureCollection of nodes
+ * @param options - Optional styling and icon configuration
+ */
 export function useMapIcons(
   mapRef: RefObject<Map | null>,
   nodeData: any,

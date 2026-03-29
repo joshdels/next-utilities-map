@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import { useGeoJSONStore } from "@/store/useGeoJSONStore";
 
-export function useGeoJSON() {
+/**
+ * Loads GeoJSON data (lines & nodes) and stores it in Zustand.
+ * Fetches both resources in parallel and handles loading/error state.
+ */
+export function useGeoJSON(lines: string, nodes: string) {
   const setLines = useGeoJSONStore((state) => state.setLines);
   const setNodes = useGeoJSONStore((state) => state.setNodes);
 
@@ -16,8 +20,8 @@ export function useGeoJSON() {
         setLoading(true);
 
         const [linesRes, nodesRes] = await Promise.all([
-          fetch("/data/lines.geojson"),
-          fetch("/data/nodes.geojson"),
+          fetch(lines),
+          fetch(nodes),
         ]);
 
         if (!linesRes.ok || !nodesRes.ok)
