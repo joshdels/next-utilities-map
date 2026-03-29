@@ -7,13 +7,11 @@ export function useMap(containerRef: React.RefObject<HTMLDivElement | null>) {
 
   useEffect(() => {
     const container = containerRef.current;
-
     if (!container || mapRef.current) return;
 
     const map = new maplibregl.Map({
       container,
-      style:
-        "https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json",
+      style: "https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json",
       center: [0, 0],
       zoom: 3,
       attributionControl: false,
@@ -27,7 +25,7 @@ export function useMap(containerRef: React.RefObject<HTMLDivElement | null>) {
       map.remove();
       mapRef.current = null;
     };
-  }, [containerRef]);
+  }, []);
 
   return mapRef;
 }

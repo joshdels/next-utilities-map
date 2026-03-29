@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-
-type GeoJSON = GeoJSON.FeatureCollection;
+import { useGeoJSONStore } from "@/store/useGeoJSONStore";
 
 export function useGeoJSON() {
-  const [lines, setLines] = useState<GeoJSON | null>(null);
-  const [nodes, setNodes] = useState<GeoJSON | null>(null);
+  const setLines = useGeoJSONStore((state) => state.setLines);
+  const setNodes = useGeoJSONStore((state) => state.setNodes);
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -21,9 +20,8 @@ export function useGeoJSON() {
           fetch("/data/nodes.geojson"),
         ]);
 
-        if (!linesRes.ok || !nodesRes.ok) {
+        if (!linesRes.ok || !nodesRes.ok)
           throw new Error("Failed to fetch GeoJSON");
-        }
 
         const [linesData, nodesData] = await Promise.all([
           linesRes.json(),
@@ -48,7 +46,7 @@ export function useGeoJSON() {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [setLines, setNodes]);
 
-  return { lines, nodes, loading, error };
+  return { loading, error };
 }

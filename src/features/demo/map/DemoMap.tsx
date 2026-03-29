@@ -2,19 +2,21 @@
 
 import { useRef, useEffect } from "react";
 import styles from "./Map.module.css";
-
 import { useMap } from "@/hooks/useMap";
-import { useGeoJSON } from "@/hooks/useGeoJSON";
+import { useGeoJSONStore } from "@/store/useGeoJSONStore";
+import { useMapIcons } from "@/hooks/useMapIcons";
 import { lineLayer, nodeLayer } from "@/utils/layers";
 import { fitToBounds } from "@/utils/fitToBound";
-import { useMapIcons } from "@/hooks/useMapIcons";
 
 export default function DemoMap() {
   const containerRef = useRef<HTMLDivElement>(null);
-
   const mapRef = useMap(containerRef);
-  const { lines, nodes } = useGeoJSON();
 
+  // Subscribe to global data
+  const lines = useGeoJSONStore((state) => state.lines);
+  const nodes = useGeoJSONStore((state) => state.nodes);
+
+  // Add custom icons for nodes
   useMapIcons(mapRef, nodes, {
     radius: 20,
     iconScale: 0.6,
@@ -26,35 +28,38 @@ export default function DemoMap() {
     },
   });
 
+  // Add / update layers whenever data changes
   useEffect(() => {
     const map = mapRef.current;
     if (!map || !lines || !nodes) return;
 
     const addLayers = () => {
+      // Lines
       if (!map.getSource("lines-data")) {
         map.addSource("lines-data", { type: "geojson", data: lines });
+      } else {
+        (map.getSource("lines-data") as maplibregl.GeoJSONSource).setData(
+          lines,
+        );
       }
 
+      // Nodes
       if (!map.getSource("nodes-data")) {
         map.addSource("nodes-data", { type: "geojson", data: nodes });
+      } else {
+        (map.getSource("nodes-data") as maplibregl.GeoJSONSource).setData(
+          nodes,
+        );
       }
 
-      if (!map.getLayer("lines-layer")) {
-        map.addLayer(lineLayer);
-      }
-
-      if (!map.getLayer("nodes-layer")) {
-        map.addLayer(nodeLayer);
-      }
+      if (!map.getLayer("lines-layer")) map.addLayer(lineLayer);
+      if (!map.getLayer("nodes-layer")) map.addLayer(nodeLayer);
 
       fitToBounds(map, lines);
     };
 
-    if (map.loaded()) {
-      addLayers();
-    } else {
-      map.once("load", addLayers);
-    }
+    if (map.loaded()) addLayers();
+    else map.once("load", addLayers);
   }, [mapRef, lines, nodes]);
 
   return <div ref={containerRef} className={styles["map-container"]} />;
