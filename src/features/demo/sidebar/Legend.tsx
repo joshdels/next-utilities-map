@@ -1,5 +1,5 @@
 import { useLegend } from "@/hooks/useLegend";
-import { capitalizeFirstLetter } from "@/utils/capitalizeFirstLetter";
+import { formatText } from "@/utils/formatText";
 import { NODE_TYPE_COLORS } from "@/utils/layers";
 
 export default function LegendSection() {
@@ -23,9 +23,7 @@ export default function LegendSection() {
                     backgroundColor: l.color,
                   }}
                 />
-                <span className="text-gray-700">
-                  {capitalizeFirstLetter(l.type)}
-                </span>
+                <span className="text-gray-700">{formatText(l.type)}</span>
               </div>
             ))}
           </div>
@@ -53,9 +51,7 @@ export default function LegendSection() {
                     className="invert"
                   />
                 </div>
-                <span className="ml-3 text-gray-700">
-                  {capitalizeFirstLetter(n.type)}
-                </span>
+                <span className="ml-3 text-gray-700">{formatText(n.type)}</span>
               </div>
             ))}
           </div>

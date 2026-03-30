@@ -5,7 +5,7 @@ import SideBar from "./SideBar";
 import { useTabStore } from "@/store/useTabStore";
 import OverviewSection from "./Overview";
 import LegendSection from "./Legend";
-import { capitalizeFirstLetter } from "@/utils/capitalizeFirstLetter";
+import { formatText } from "@/utils/formatText";
 
 export default function FloatingDashboard() {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,7 +17,7 @@ export default function FloatingDashboard() {
 
   return (
     <div
-      className={`m-6 flex h-[85vh] flex-row gap-5 rounded-lg bg-white text-black shadow-md transition-all duration-300 ease-in-out ${isOpen ? "w-120" : "w-30"}`}
+      className={`m-5 flex h-[88.5vh] flex-row gap-1 rounded-lg bg-white text-black shadow-md transition-all duration-300 ease-in-out ${isOpen ? "w-140" : "w-30"}`}
     >
       <aside
         className={`rounded-md p-2 ${isOpen ? "bg-gray-200" : "bg-white"} `}
@@ -30,7 +30,7 @@ export default function FloatingDashboard() {
       >
         <section className="mb-5 flex flex-row justify-between">
           <h1 className="overflow-hidden text-2xl font-black whitespace-nowrap">
-            Project {activeTab && capitalizeFirstLetter(activeTab)}
+            Project {activeTab && formatText(activeTab)}
           </h1>
 
           <button onClick={toggleOpen}>
