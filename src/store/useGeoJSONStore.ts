@@ -1,17 +1,24 @@
 import { create } from "zustand";
-
-type GeoJSON = GeoJSON.FeatureCollection;
+import type { Feature, FeatureCollection, Geometry } from "geojson";
 
 interface GeoJSONStore {
-  lines: GeoJSON | null;
-  nodes: GeoJSON | null;
-  setLines: (data: GeoJSON) => void;
-  setNodes: (data: GeoJSON) => void;
+  line: Feature<Geometry> | null;
+  lines: FeatureCollection<Geometry> | null;
+  node: Feature<Geometry> | null;
+  nodes: FeatureCollection<Geometry> | null;
+  setLine: (data: Feature<Geometry> | null) => void;
+  setLines: (data: FeatureCollection<Geometry> | null) => void;
+  setNode: (data: Feature<Geometry> | null) => void;
+  setNodes: (data: FeatureCollection<Geometry> | null) => void;
 }
 
 export const useGeoJSONStore = create<GeoJSONStore>((set) => ({
+  line: null,
+  node: null,
   lines: null,
   nodes: null,
-  setLines: (data: GeoJSON) => set({ lines: data }),
-  setNodes: (data: GeoJSON) => set({ nodes: data }),
+  setLine: (data) => set({ line: data }),
+  setLines: (data) => set({ lines: data }),
+  setNode: (data) => set({ node: data }),
+  setNodes: (data) => set({ nodes: data }),
 }));

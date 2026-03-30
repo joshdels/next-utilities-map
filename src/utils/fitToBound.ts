@@ -1,5 +1,9 @@
 import maplibregl from "maplibre-gl";
 
+/**
+ * This use geojson bounding to zoom in and fit to bounds. 
+ * usually it uses the padding of 50 as a padding
+ */
 export function fitToBounds(map: maplibregl.Map, geojson: any) {
   const bounds = new maplibregl.LngLatBounds();
 

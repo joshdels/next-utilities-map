@@ -31,7 +31,7 @@ export default function SideBar() {
           </svg>
 
           <span
-            className={`text-sm font-bold text-black ${activeTab == nav.label.toLocaleLowerCase() ? "font-extrabold text-white" : ""} `}
+            className={`text-sm font-bold text-black ${activeTab == nav.label.toLocaleLowerCase() ? "text-white" : ""} `}
           >
             {nav.label}
           </span>

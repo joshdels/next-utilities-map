@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function DemoNavbar() {
   return (
-    <nav className="z-50 flex h-[10vh] items-center justify-center gap-3 bg-white text-center text-black shadow-lg">
+    <nav className="z-50 flex h-[8vh] items-center justify-center gap-3 bg-white text-center text-black shadow-lg">
       <span>
         <Image
           src="/logo/logo.jpg"

@@ -15,10 +15,11 @@ Features
 ---
 TechStack
 - frontend: nextjs
+- zustand: global state management
 - mapping library: maplibre
 - hosting: vercel(optional)
 - backend django(separate vps)
-- mapping icons: Esri Calcite
+- mapping icons: Esri Calcite and lucide icons
 - data: geojson
 
 

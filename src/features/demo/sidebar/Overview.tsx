@@ -1,5 +1,7 @@
+import ItemOverview from "@/hooks/useItemOverview";
+
 export default function OverviewSection() {
   return (
-    <div>This is Overview</div>
+    <ItemOverview />
   )
 }
