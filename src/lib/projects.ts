@@ -7,6 +7,7 @@ export const getProjects = async () => {
 };
 
 export interface ProjectProps {
+  id: number;
   name: string;
   description?: string;
   logo?: File | null;
