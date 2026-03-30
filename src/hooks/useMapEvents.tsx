@@ -1,47 +1,43 @@
 import type maplibregl from "maplibre-gl";
 import { useGeoJSONStore } from "@/store/useGeoJSONStore";
 
-type LayerHandler = {
-  onClick?: (
-    e: maplibregl.MapMouseEvent & { features?: maplibregl.GeoJSONFeature[] },
-  ) => void;
-  onHover?: boolean;
-};
-
-type MapEventHandlers = Record<string, LayerHandler>;
-
-export function useMapEvents(map: maplibregl.Map, handlers: MapEventHandlers) {
-  const layers = Object.keys(handlers);
+export function useMapEvents(map: maplibregl.Map) {
   const setNode = useGeoJSONStore.getState().setNode;
   const setLine = useGeoJSONStore.getState().setLine;
 
-  layers.forEach((layer) => {
-    const { onClick, onHover } = handlers[layer];
+  // Define your layers
+  const nodeLayer = "nodes-layer";
+  const lineLayer = "lines-layer";
 
-    if (onHover) {
-      map.on(
-        "mouseenter",
-        layer,
-        () => (map.getCanvas().style.cursor = "pointer"),
-      );
-      map.on("mouseleave", layer, () => (map.getCanvas().style.cursor = ""));
-    }
-
-    if (onClick) {
-      map.off("click", layer, onClick);
-      map.on("click", layer, onClick);
-    }
+  // Hover cursor (optional)
+  [nodeLayer, lineLayer].forEach((layer) => {
+    map.on("mouseenter", layer, () => (map.getCanvas().style.cursor = "pointer"));
+    map.on("mouseleave", layer, () => (map.getCanvas().style.cursor = ""));
   });
 
-  const handleMapClick = (e: maplibregl.MapMouseEvent) => {
-    const features = map.queryRenderedFeatures(e.point, { layers });
+  // Centralized click handler
+  const handleClick = (e: maplibregl.MapMouseEvent & { features?: maplibregl.GeoJSONFeature[] }) => {
+    const features = map.queryRenderedFeatures(e.point, { layers: [nodeLayer, lineLayer] });
 
     if (!features.length) {
+      // Clicked empty space
       setNode(null);
       setLine(null);
+      return;
+    }
+
+    const nodeFeature = features.find((f) => f.layer.id === nodeLayer);
+    const lineFeature = features.find((f) => f.layer.id === lineLayer);
+
+    if (nodeFeature) {
+      setNode(nodeFeature);
+      setLine(null); // clear line data
+    } else if (lineFeature) {
+      setLine(lineFeature);
+      setNode(null); // clear node data
     }
   };
 
-  map.off("click", handleMapClick);
-  map.on("click", handleMapClick);
+  map.off("click", handleClick);
+  map.on("click", handleClick);
 }

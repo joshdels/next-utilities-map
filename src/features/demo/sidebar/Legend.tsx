@@ -6,9 +6,9 @@ export default function LegendSection() {
   const { lineLegend, nodeLegend } = useLegend();
 
   return (
-    <div className="my-5 space-y-6">
+    <div className="my-5 space-y-10">
       <div>
-        <h3 className="mb-2 text-lg font-bold text-gray-800">Lines</h3>
+        <h3 className="mb-2 text-xl font-bold text-gray-800">Lines</h3>
         {lineLegend.length === 0 ? (
           <p className="text-sm text-gray-500">No line types loaded</p>
         ) : (
@@ -31,7 +31,7 @@ export default function LegendSection() {
       </div>
 
       <div>
-        <h3 className="mb-2 text-lg font-bold text-gray-800">Nodes</h3>
+        <h3 className="mb-2 text-xl font-bold text-gray-800">Nodes</h3>
         {nodeLegend.length === 0 ? (
           <p className="text-sm text-gray-500">No node types loaded</p>
         ) : (

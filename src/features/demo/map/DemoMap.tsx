@@ -15,8 +15,6 @@ export default function DemoMap() {
 
   const lines = useGeoJSONStore((state) => state.lines);
   const nodes = useGeoJSONStore((state) => state.nodes);
-  const setLine = useGeoJSONStore((state) => state.setLine);
-  const setNode = useGeoJSONStore((state) => state.setNode);
 
   useMapIcons(mapRef, nodes, {
     radius: 20,
@@ -28,22 +26,6 @@ export default function DemoMap() {
       pump: "#CC5500",
     },
   });
-
-  const handleNodeClick = (e: any) => {
-    const feature = e.features?.[0];
-    if (!feature) return;
-
-    setNode(feature);
-    console.log("Node clicked:", feature.properties);
-  };
-
-  const handleLineClick = (e: any) => {
-    const feature = e.features?.[0];
-    if (!feature) return;
-
-    setLine(feature);
-    console.log("Line clicked:", feature.properties);
-  };
 
   useEffect(() => {
     const map = mapRef.current;
@@ -69,10 +51,7 @@ export default function DemoMap() {
 
       fitToBounds(map, lines);
 
-      useMapEvents(map, {
-        "nodes-layer": { onClick: handleNodeClick, onHover: true },
-        "lines-layer": { onClick: handleLineClick, onHover: true },
-      });
+      useMapEvents(map);
     };
 
     if (map.loaded()) addLayers();
