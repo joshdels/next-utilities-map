@@ -1,0 +1,67 @@
+.navbar {
+  align-items: center;
+  background: #fff;
+  border-bottom: 1px solid var(--color-gray-200);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 5%);
+  display: flex;
+  height: 6vh;
+  justify-content: space-between;
+  padding: 0 var(--spacing-lg);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+}
+
+.navbar-brand {
+  align-items: center;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar-brand h1 {
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+.navbar-brand span {
+  color: var(--color-gray-500);
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: color 0.2s;
+}
+
+.navbar-brand span:hover {
+  color: #000;
+}
+
+.navbar-menu {
+  align-items: center;
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.navbar-primary-button {
+  border: 1px solid #6b7280;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.875rem;
+  padding: var(--spacing-sm) var(--spacing-md);
+  transition: background-color 0.2s;
+}
+
+.navbar-primary-button:hover {
+  background-color: #f3f4f6;
+}
+
+.navbar-secondary-button {
+  background-color: var(--color-blue-500);
+  border-radius: var(--border-radius-sm);
+  color: #fff;
+  font-size: 0.875rem;
+  padding: var(--spacing-sm) var(--spacing-md);
+  transition: all 0.2s ease-in-out;
+}
+
+.navbar-secondary-button:hover {
+  background-color: var(--color-blue-600);
+}

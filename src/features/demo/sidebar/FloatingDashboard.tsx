@@ -26,7 +26,7 @@ export default function FloatingDashboard() {
       </aside>
 
       <main
-        className={`flex-1 rounded-lg bg-white p-5 transition-all duration-300 ease-in-out ${isOpen ? "translate-x-0 opacity-100" : "pointer-events-none -translate-x-5 opacity-0"}`}
+        className={`flex-1 rounded-lg bg-white p-3 transition-all duration-300 ease-in-out ${isOpen ? "translate-x-0 opacity-100" : "pointer-events-none -translate-x-3 opacity-0"}`}
       >
         <section className="mb-5 flex flex-row justify-between">
           <h1 className="overflow-hidden text-2xl font-black whitespace-nowrap">
@@ -43,15 +43,14 @@ export default function FloatingDashboard() {
           {activeTab == "legend" && <LegendSection />}
         </section>
       </main>
-
-      {!isOpen && (
-        <button
-          onClick={toggleOpen}
-          className="absolute top-2 right-0 rounded bg-gray-500 px-3 py-1 text-white transition duration-500 ease-in-out hover:bg-blue-600"
-        >
-          <ChevronsRight className="h-5 w-5 cursor-pointer" />
-        </button>
-      )}
+{!isOpen && (
+  <button
+    onClick={toggleOpen}
+    className="absolute top-2 right-1 rounded bg-gray-500 px-2 py-1 text-white text-xs hover:bg-blue-600"
+  >
+    <ChevronsRight className="h-4 w-4" />
+  </button>
+)}
     </div>
   );
 }
