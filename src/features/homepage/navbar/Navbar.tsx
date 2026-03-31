@@ -1,20 +1,16 @@
+import styles from "./Navbar.module.css";
+
 export default function NavbarSection() {
   return (
-    <div className="sticky top-0 z-50 flex h-[6vh] w-full items-center justify-between border bg-white shadow-sm border-gray-200 px-20">
-      <div className="flex items-center gap-6">
-        <h1 className="text-lg font-semibold">Utility Work</h1>
-        <span className="cursor-pointer text-sm text-gray-600 hover:text-black">
-          Product
-        </span>
+    <div className={styles.navbar}>
+      <div className={styles["navbar-brand"]}>
+        <h1>InfraLens</h1>
+        <span className={styles["navbar-brand"]}>Product</span>
       </div>
 
-      <div className="flex items-center gap-4">
-        <button className="rounded-md border border-gray-500 px-4 py-2 text-sm hover:bg-gray-100">
-          Sign In
-        </button>
-        <button className="rounded-md bg-blue-500 px-4 py-2 text-sm text-white transition-all hover:bg-blue-600">
-          Book Demo
-        </button>
+      <div className={styles["navbar-menu"]}>
+        <button className={styles["navbar-primary-button"]}>Sign In</button>
+        <button className={styles["navbar-secondary-button"]}>Book Demo</button>
       </div>
     </div>
   );
