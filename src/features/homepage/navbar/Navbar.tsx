@@ -1,6 +1,6 @@
 export default function NavbarSection() {
   return (
-    <div className="z-50 flex h-[6vh] w-full items-center justify-between border border-gray-200 px-20">
+    <div className="sticky top-0 z-50 flex h-[6vh] w-full items-center justify-between border bg-white shadow-sm border-gray-200 px-20">
       <div className="flex items-center gap-6">
         <h1 className="text-lg font-semibold">Utility Work</h1>
         <span className="cursor-pointer text-sm text-gray-600 hover:text-black">
