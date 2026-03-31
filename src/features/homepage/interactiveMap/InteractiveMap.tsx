@@ -1,28 +1,24 @@
 import Link from "next/link";
 import DemoMapPreview from "@/features/demo/DemoMapPreview";
+import styles from "./InteractiveMap.module.css";
 
 export default function InteractiveMap() {
   return (
-    <section className="mt-24 h-screen text-center">
-      <h1 className="mb-5 text-6xl font-black">Showcase Your Plan</h1>
+    <section className={styles.container}>
+      <h1>Showcase Your Plan</h1>
 
-      <p className="mb-5 text-lg text-gray-600">
+      <p>
         Experience your own data visible and easy to access by your
         Team/Organization
       </p>
 
-      <Link
-        href={"/demo"}
-        className="rounded-md bg-blue-600 px-4 py-3 text-xl text-white hover:bg-blue-700"
-      >
+      <Link href={"/demo"} className={styles["preview-link"]}>
         Preview More
       </Link>
 
-      <div className="mx-auto mt-12 max-w-5xl px-6">
-        <div className="overflow-hidden rounded-2xl border shadow-lg">
-          <div className="h-[50vh] w-full">
-            <DemoMapPreview />
-          </div>
+      <div className={styles["container-map"]}>
+        <div className={styles["container-map-border"]}>
+          <DemoMapPreview />
         </div>
       </div>
     </section>

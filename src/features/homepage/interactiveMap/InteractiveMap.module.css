@@ -1,0 +1,41 @@
+.container {
+  height: 100vh;
+  margin-top: 6rem;
+  text-align: center;
+}
+
+.container h1 {
+  font-size: 3.75rem;
+  font-weight: 900;
+  margin-bottom: 1.25rem;
+}
+
+.container p {
+  color: var(--color-gray-500);
+  font-size: 1.125rem;
+  margin-bottom: 1.25rem;
+}
+
+.preview-link {
+  background-color: var(--color-blue-500);
+  border-radius: var(--border-radius-sm);
+  color: white;
+  font-size: 1.25rem;
+  padding: 0.75rem;
+}
+
+.preview-link:hover {
+  background-color: var(--color-blue-600);
+}
+
+.container-map {
+  margin-inline: auto;
+  margin-top: 2rem;
+  max-width: 60rem;
+  padding: 1.5rem;
+}
+
+.container-map-border {
+  border-radius: 1rem;
+  overflow: hidden;
+}

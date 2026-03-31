@@ -1,5 +1,6 @@
 .hero-container {
   align-items: center;
+  border-bottom: 1px solid var(--color-gray-200);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,7 +17,7 @@
 
 .hero-title {
   font-size: 2.25rem;
-  font-weight: 700;
+  font-weight: 900;
   line-height: 1.25;
   max-width: 64rem;
   text-align: center;

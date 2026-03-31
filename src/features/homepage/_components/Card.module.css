@@ -1,0 +1,50 @@
+.card {
+  align-items: flex-start; /* prevents stretching */
+  background-color: white;
+  border: 1px solid var(--color-gray-200);
+  border-radius: 1rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1.5rem;
+  max-width: 20rem;
+  padding: 1.5rem;
+}
+
+.card span {
+  background: var(--color-gray-200);
+  border-radius: 0.375rem;
+  color: var(--color-gray-500);
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+}
+
+.card h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.card p {
+  color: var(--color-gray-500);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.card ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  list-style-type: disc;
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.card li {
+  color: var(--color-gray-600);
+  line-height: 1.5;
+}
