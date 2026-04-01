@@ -4,7 +4,7 @@ import { useRef, useEffect, useState } from "react";
 import maplibregl, { Map } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import styles from "./Map.module.css";
-import { useMapIcons } from "@/hooks/useMapIcons";
+import { useMapIcons } from "@/utils/mapIcons";
 
 export default function ProjectMap() {
   const mapContainer = useRef<HTMLDivElement>(null);

@@ -26,7 +26,7 @@ interface IconOptions {
  * @param nodeData - GeoJSON FeatureCollection of nodes
  * @param options - Optional styling and icon configuration
  */
-export function useMapIcons(
+export function MapIcons(
   mapRef: RefObject<Map | null>,
   nodeData: any,
   options?: IconOptions,

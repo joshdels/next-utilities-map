@@ -1,6 +1,6 @@
 import { fetchWithAuth } from "./api";
 
-const BASE_URL = "http://127.0.0.1:8000/api/assets/";
+const BASE_URL = "https://infralens.topmapsolutions.com/api/assets/";
 
 export interface AssetProps {
   id: number;
