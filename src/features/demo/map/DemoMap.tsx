@@ -4,7 +4,7 @@ import { useRef, useEffect } from "react";
 import styles from "./Map.module.css";
 import { useMap } from "@/hooks/useMap";
 import { useGeoJSONStore } from "@/store/useGeoJSONStore";
-import { useMapIcons } from "@/hooks/useMapIcons";
+import { MapIcons } from "@/utils/mapIcons";
 import { lineLayer, nodeLayer } from "@/utils/layers";
 import { fitToBounds } from "@/utils/fitToBound";
 import { useMapEvents } from "@/hooks/useMapEvents";
@@ -16,7 +16,7 @@ export default function DemoMap() {
   const lines = useGeoJSONStore((state) => state.lines);
   const nodes = useGeoJSONStore((state) => state.nodes);
 
-  useMapIcons(mapRef, nodes, {
+  MapIcons(mapRef, nodes, {
     radius: 20,
     iconScale: 0.6,
     borderWidth: 2,
