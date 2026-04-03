@@ -36,7 +36,7 @@ export default function HeroSection() {
             </Link>
             <button
               className={styles["hero-secondary-button"]}
-              onClick={() => scrollToSection("#interactive-map")}
+              onClick={() => scrollToSection("interactive-map")}
             >
               Explore the Platform
             </button>

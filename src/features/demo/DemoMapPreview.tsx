@@ -10,7 +10,7 @@ const Map = dynamic(() => import("@/features/demo/map/DemoMap"), {
 
 export default function DemoMapPreview() {
   return (
-    <div className="flex h-[50vh] flex-col">
+    <div className="relative flex h-[60vh] flex-col">
       <MapProvider>
         <Map />
       </MapProvider>

@@ -4,9 +4,9 @@ import styles from "./InteractiveMap.module.css";
 
 export default function InteractiveMap() {
   return (
-    <div className="interactive-map page-wrapper">
+    <div id="interactive-map" className="page-wrapper">
       <div className="page-wrapper-grid">
-        <section className={styles.container}>
+        <div className={styles.container}>
           <h1>Showcase Your Own Plan With Ease</h1>
 
           <p>
@@ -23,7 +23,7 @@ export default function InteractiveMap() {
               <DemoMapPreview />
             </div>
           </div>
-        </section>
+        </div>
       </div>
     </div>
   );
