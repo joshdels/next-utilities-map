@@ -26,9 +26,11 @@ export const logout = () => {
 };
 
 export const getAccessToken = () => {
+  if (typeof window === "undefined") return null;
   return localStorage.getItem("access");
 };
 
 export const isAuthenticated = () => {
+  if (typeof window === "undefined") return false;
   return !!localStorage.getItem("access");
 };
