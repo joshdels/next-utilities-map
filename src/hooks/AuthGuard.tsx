@@ -18,15 +18,13 @@ export default function AuthGuard({ children }: AuthGuardProps) {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const token = getAccessToken();
+  const token = getAccessToken();
 
-    if (!token) {
-      router.replace("/login");
-    } else {
-      setLoading(false);
-    }
-  }, [router]);
+  if (!token) {
+    router.replace("/login");
+  } else {
+    setLoading(false);
+  }
 
   if (loading)
     return (
