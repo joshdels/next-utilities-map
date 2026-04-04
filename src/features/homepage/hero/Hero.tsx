@@ -8,19 +8,20 @@ export default function HeroSection() {
     <div className="page-wrapper">
       <div className="page-wrapper-grid">
         <section className={styles["hero-container"]}>
-          <p className={styles["hero-tagline"]}>
-            Made for Engineers & Planners
-          </p>
+          <p className={styles["hero-tagline"]}>CAD to GIS. Done right.</p>
 
           <h1 className={styles["hero-title"]}>
-            Turn Your CAD Utility Files into a{" "}
-            <span>Powerful Shareable WebGIS Platform</span>
+            Turn Scattered CAD Data into a {"  "}
           </h1>
+          <span className={styles["hero-subtitle"]}>
+            Live, Shareable WebGIS Platform
+          </span>
 
           <p className={styles["hero-description"]}>
-            We clean and structure your messy CAD utility data then transform it
-            into an interactive map and dashboard your team and organization can
-            actually use.
+            We clean and structure your CAD data, transforming it into an
+            interactive map and dashboard your organization can use from day one
+            backed by a secure, enterprise-grade geodatabase built for long-term
+            reliability.
           </p>
 
           <div className={styles["hero-actions"]}>
@@ -36,7 +37,7 @@ export default function HeroSection() {
             </Link>
             <button
               className={styles["hero-secondary-button"]}
-              onClick={() => scrollToSection("#interactive-map")}
+              onClick={() => scrollToSection("interactive-map")}
             >
               Explore the Platform
             </button>

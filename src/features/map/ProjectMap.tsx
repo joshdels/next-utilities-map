@@ -4,7 +4,7 @@ import { useRef, useEffect, useState } from "react";
 import maplibregl, { Map } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import styles from "./Map.module.css";
-import { useMapIcons } from "@/utils/mapIcons";
+// import { useMapIcons } from "@/utils/mapIcons";
 
 export default function ProjectMap() {
   const mapContainer = useRef<HTMLDivElement>(null);
@@ -14,8 +14,8 @@ export default function ProjectMap() {
   const [lat] = useState(0);
   const [zoom] = useState(3);
 
-  const [nodeData, setNodeData] = useState<any>(null);
-  const [lineData, setLineData] = useState<any>(null);
+  // const [nodeData, setNodeData] = useState<any>(null);
+  // const [lineData, setLineData] = useState<any>(null);
 
   useEffect(() => {
     if (map.current || !mapContainer.current) return;

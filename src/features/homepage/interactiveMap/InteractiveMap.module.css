@@ -31,13 +31,19 @@
 }
 
 .container-map {
+  display: block;
   margin-inline: auto;
   margin-top: 2rem;
-  max-width: 70rem;
   padding: 1.5rem;
 }
 
 .container-map-border {
-  border-radius: 1rem;
+  border-radius: 2rem;
   overflow: hidden;
+}
+
+@media screen and (width >= 480px) {
+  .container h1 {
+    font-size: 2.5rem;
+  }
 }

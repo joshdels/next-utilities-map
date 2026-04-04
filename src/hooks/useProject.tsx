@@ -46,7 +46,7 @@ export const useProjects = () => {
       const newProject = await createProject(data);
       setProjects((prev) => [...prev, newProject]);
     } catch (err) {
-      setError("Failed to create project");
+      setError(`Failed to create project: ${err}`);
     }
   }, []);
 
