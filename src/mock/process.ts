@@ -1,5 +1,5 @@
 import { FileUp, MapPinned, RefreshCw, Wrench } from "lucide-react";
-import { CardProps } from "@/shared/components/Card";
+import { CardProps } from "@/shared/components/card/Card";
 
 export const process: CardProps[] = [
   {

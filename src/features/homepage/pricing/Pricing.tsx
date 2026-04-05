@@ -1,8 +1,8 @@
 import { lists, offers } from "@/mock/pricing";
 import "@/shared/styles/wrappers.css";
-import List from "../../../shared/components/List";
+import List from "../../../shared/components/list/List";
 import styles from "./Pricing.module.css";
-import { CardPrice } from "@/shared/components/Card";
+import { CardPrice } from "@/shared/components/card/Card";
 import Link from "next/link";
 
 export default function PricingSection() {

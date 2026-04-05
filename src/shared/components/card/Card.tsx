@@ -14,6 +14,11 @@ interface CardPriceProps extends CardProps {
   features?: string[];
   isHighlight?: boolean;
 }
+
+interface CardStudyProps extends CardPriceProps {
+  tags: string[];
+}
+
 // maybe decouple it for resuablility ? who knows :)
 // export function CardCommon() {
 //   return (
@@ -69,6 +74,25 @@ export function CardPrice({
           <li key={index}>{step}</li>
         ))}
       </ul>
+    </div>
+  );
+}
+
+export function CardStudy({ title, description, tags }: CardStudyProps) {
+  return (
+    <div className={styles["card-study"]}>
+      <div className={styles["card-tags-container"]}>
+        {tags &&
+          tags.length > 0 &&
+          tags.map((tag, index) => (
+            <span className={styles["card-tags"]} key={index}>
+              {tag}
+            </span>
+          ))}
+      </div>
+      <h1>{title}</h1>
+      <p>{description}</p>
+      <button>view full case study</button>
     </div>
   );
 }

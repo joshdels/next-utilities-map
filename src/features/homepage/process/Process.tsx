@@ -1,5 +1,5 @@
 import { process } from "@/mock/process";
-import { CardProcess } from "../../../shared/components/Card";
+import { CardProcess } from "../../../shared/components/card/Card";
 
 import "@/shared/styles/wrappers.css";
 import styles from "./Process.module.css";

@@ -9,7 +9,9 @@ export default function NavbarSection() {
         <div className={styles.navbar}>
           <div className={styles["navbar-brand"]}>
             <h1>InfraLens</h1>
-            <span className={styles["navbar-brand"]}>Product</span>
+            <Link href={"/case-study"}>
+              <span className={styles["navbar-brand"]}>Case Study</span>
+            </Link>
           </div>
 
           <div className={styles["navbar-menu"]}>
