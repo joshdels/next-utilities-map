@@ -1,5 +1,6 @@
 import { LucideIcon } from "lucide-react";
 import styles from "./Card.module.css";
+import Image from "next/image";
 
 export interface CardProps {
   index?: number;
@@ -17,16 +18,9 @@ interface CardPriceProps extends CardProps {
 
 interface CardStudyProps extends CardPriceProps {
   tags: string[];
+  image?: string;
+  date: string;
 }
-
-// maybe decouple it for resuablility ? who knows :)
-// export function CardCommon() {
-//   return (
-//     <div>
-//       <button></button>
-//     </div>
-//   )
-// }
 
 export function CardProcess({
   index,
@@ -78,21 +72,34 @@ export function CardPrice({
   );
 }
 
-export function CardStudy({ title, description, tags }: CardStudyProps) {
+export function CardStudyHighlight({
+  title,
+  description,
+  tags,
+  image = "",
+  date,
+}: CardStudyProps) {
   return (
     <div className={styles["card-study"]}>
-      <div className={styles["card-tags-container"]}>
-        {tags &&
-          tags.length > 0 &&
-          tags.map((tag, index) => (
-            <span className={styles["card-tags"]} key={index}>
-              {tag}
-            </span>
-          ))}
+      <div className={styles["card-image"]}>
+        <Image src={image} alt="image" fill style={{ objectFit: "cover" }} />
       </div>
-      <h1>{title}</h1>
-      <p>{description}</p>
-      <button>view full case study</button>
+
+      <div className={styles["card-content"]}>
+        <div className={styles["card-tags-container"]}>
+          {tags &&
+            tags.length > 0 &&
+            tags.map((tag, index) => (
+              <span className={styles["card-tags"]} key={index}>
+                {tag}
+              </span>
+            ))}
+        </div>
+        <h1>{title}</h1>
+        <span>{date}</span>
+        <p>{description}</p>
+        <button>view full case study</button>
+      </div>
     </div>
   );
 }
