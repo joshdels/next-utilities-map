@@ -1,10 +1,18 @@
 .container {
-  width: 100%;
-  max-width: 50rem;
-  margin: 0 auto;
-
-  display: grid;
+  padding: 2rem 0;
   gap: 2rem;
+  display: flex;
+  flex-direction: column;
 }
 
+.card-container-highlight {
+  border-radius: 0.5rem;
+  gap: 1rem;
+}
 
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-radius: 0.5rem;
+  gap: 1rem;
+}

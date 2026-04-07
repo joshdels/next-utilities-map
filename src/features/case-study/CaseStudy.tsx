@@ -1,21 +1,29 @@
 import { studies } from "@/mock/case-study";
-import { CardStudyHighlight } from "@/shared/components/card/Card";
-import "@/shared/styles/wrappers.css";
+import { CardStudy } from "@/shared/components/card/Card";
 import styles from "./CaseStudy.module.css";
 
 export default function CaseStudySection() {
+  const highlight = studies.find((s) => s.isHighlight);
+  const normal = studies.filter((s) => !s.isHighlight);
+
   return (
-    <div className="page-wrapper">
+    <div className="page-wrapper-secondary">
       <div className="page-wrapper-grid">
-        <h1>Case Study</h1>
         <div className={styles.container}>
-          {studies
-            .filter((study) => study.isHighlight)
-            .map((study, index) => (
-              <CardStudyHighlight key={index} index={index + 1} {...study} />
+          <h1>Case Studies</h1>
+
+          {highlight && (
+            <div className={styles["card-container-highlight"]}>
+              <CardStudy {...highlight} />
+            </div>
+          )}
+
+          <div className={styles["card-container"]}>
+            {normal.map((study, index) => (
+              <CardStudy key={index} {...study} />
             ))}
+          </div>
         </div>
-        
       </div>
     </div>
   );

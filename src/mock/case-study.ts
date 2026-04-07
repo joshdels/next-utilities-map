@@ -30,4 +30,19 @@ export const studies: StudiesProps[] = [
     image: "/image/image.png",
     date: "April 7, 2026",
   },
+  {
+    title: "Case Study 3",
+    tags: ["Pipelines"],
+    description: "Hi this is description",
+    image: "/image/image.png",
+    date: "April 7, 2026",
+  },
+  {
+    title: "Case Study 3",
+    tags: ["Pipelines"],
+    description:
+      "Lorem3239 r1239 129rj21 09r120r9214 021jr9314jf1i34fh oi3fhqkjwehf oefhlkshf a4wh faushfaoi4 ao8fhsiuf h",
+    image: "/image/image.png",
+    date: "April 7, 2026",
+  },
 ];

@@ -20,6 +20,7 @@ interface CardStudyProps extends CardPriceProps {
   tags: string[];
   image?: string;
   date: string;
+  isHighlight?: boolean;
 }
 
 export function CardProcess({
@@ -72,17 +73,20 @@ export function CardPrice({
   );
 }
 
-export function CardStudyHighlight({
+export function CardStudy({
   title,
   description,
   tags,
   image = "",
   date,
+  isHighlight = false,
 }: CardStudyProps) {
   return (
-    <div className={styles["card-study"]}>
+    <div
+      className={`${styles["card-study"]} ${isHighlight ? styles["card-study-highlight"] : ""}`}
+    >
       <div className={styles["card-image"]}>
-        <Image src={image} alt="image" fill style={{ objectFit: "cover" }} />
+        <Image src={image} alt="image" fill objectFit="cover" />
       </div>
 
       <div className={styles["card-content"]}>
@@ -95,6 +99,7 @@ export function CardStudyHighlight({
               </span>
             ))}
         </div>
+
         <h1>{title}</h1>
         <span>{date}</span>
         <p>{description}</p>
