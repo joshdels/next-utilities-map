@@ -1,4 +1,4 @@
-const BASE_URL = "https://infralens.topmapsolutions.com/api/token/";
+const BASE_URL = "https://infralens-backend.topmapsolutions.com/api/token/";
 
 export const login = async (username: string, password: string) => {
   const res = await fetch(BASE_URL, {

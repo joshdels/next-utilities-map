@@ -86,7 +86,7 @@ export function CardStudy({
       className={`${styles["card-study"]} ${isHighlight ? styles["card-study-highlight"] : ""}`}
     >
       <div className={styles["card-image"]}>
-        <Image src={image} alt="image" fill objectFit="cover" />
+        <Image src={image} alt="image" fill  />
       </div>
 
       <div className={styles["card-content"]}>

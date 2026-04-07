@@ -8,7 +8,9 @@ export default function NavbarSection() {
       <div className="page-wrapper-grid">
         <div className={styles.navbar}>
           <div className={styles["navbar-brand"]}>
-            <h1>InfraLens</h1>
+            <Link href={"/"}>
+              <h1>InfraLens</h1>
+            </Link>
             <Link href={"/case-study"}>
               <span className={styles["navbar-brand"]}>Case Study</span>
             </Link>

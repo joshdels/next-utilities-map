@@ -1,6 +1,6 @@
 import { fetchWithAuth } from "./api";
 
-const BASE_URL = "https://infralens.topmapsolutions.com/api/projects/";
+const BASE_URL = "https://infralens-backend.topmapsolutions.com/api/projects/";
 
 export const getProjects = async () => {
   return fetchWithAuth(BASE_URL);

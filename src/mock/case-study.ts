@@ -9,40 +9,34 @@ interface StudiesProps {
 
 export const studies: StudiesProps[] = [
   {
-    title: "Case Study 1",
+    title: "Digital Water Pipelines",
     tags: ["Water Utilities", "Pipelines"],
-    description: "Hi this is description",
+    description: "Made for water pipelines for cities",
     isHighlight: true,
-    image: "/image/image.png",
-    date: "January 7, 2026",
+    image: "/case-study/2.png",
+    date: "April 6, 2026",
   },
   {
-    title: "Case Study 2",
-    tags: ["Oils", "Pipelines"],
-    description: "Hi this is description",
-    image: "/image/image.png",
-    date: "Feb 7, 2026",
-  },
-  {
-    title: "Case Study 3",
-    tags: ["Pipelines"],
-    description: "Hi this is description",
-    image: "/image/image.png",
-    date: "April 7, 2026",
-  },
-  {
-    title: "Case Study 3",
-    tags: ["Pipelines"],
-    description: "Hi this is description",
-    image: "/image/image.png",
-    date: "April 7, 2026",
-  },
-  {
-    title: "Case Study 3",
-    tags: ["Pipelines"],
+    title: "200% Faster Processing",
+    tags: ["Processing"],
     description:
-      "Lorem3239 r1239 129rj21 09r120r9214 021jr9314jf1i34fh oi3fhqkjwehf oefhlkshf a4wh faushfaoi4 ao8fhsiuf h",
-    image: "/image/image.png",
+      "CAD files is already a messy file and processing takes a longer time converting to GIS ready data.",
+    image: "/case-study/1.png",
+    date: "April 2, 2026",
+  },
+  {
+    title: "Looking for the Sewer?",
+    tags: ["WebGIS", "Sewer"],
+    description:
+      "One click view button from your millions of sewer data and sometimes looking for a specific sewer is a mess inside the millions sewer data",
+    image: "/case-study/4.png",
+    date: "April 7, 2026",
+  },
+  {
+    title: "Show Everyone",
+    tags: ["WebGIS"],
+    description: "Your presentation of CAD and GIS data requires you to show it to your stakeholders",
+    image: "/case-study/3.png",
     date: "April 7, 2026",
   },
 ];
