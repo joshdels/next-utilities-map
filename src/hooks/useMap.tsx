@@ -42,8 +42,6 @@ export function useMap(containerRef: React.RefObject<HTMLDivElement | null>) {
     if (!mapRef.current) return;
 
     mapRef.current.setStyle(source);
-
-    
   }, [source]);
 
   return mapRef;

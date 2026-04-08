@@ -1,7 +1,7 @@
 import maplibregl from "maplibre-gl";
 
 /**
- * This use geojson bounding to zoom in and fit to bounds. 
+ * This use geojson bounding to zoom in and fit to bounds.
  * usually it uses the padding of 50 as a padding
  */
 export function fitToBounds(map: maplibregl.Map, geojson: any) {
@@ -17,6 +17,14 @@ export function fitToBounds(map: maplibregl.Map, geojson: any) {
   });
 
   if (!bounds.isEmpty()) {
-    map.fitBounds(bounds, { padding: 50, duration: 1000 });
+    map.fitBounds(bounds, {
+      padding: {
+        top: 50,
+        bottom: 50,
+        left: 500,
+        right: 50,
+      },
+      duration: 100,
+    });
   }
 }

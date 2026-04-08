@@ -1,22 +1,7 @@
 import { useBasemapStore } from "@/store/useBasemapStore";
 import styles from "./Basemap.module.css";
-
-interface BasemapProps {
-  label: string;
-  source: string;
-}
-
-const basemaps: BasemapProps[] = [
-  {
-    label: "dark",
-    source:
-      "https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json",
-  },
-  {
-    label: "white",
-    source: "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json",
-  },
-];
+import { Basemap } from "@/shared/components/card/Basemap";
+import { basemaps, BasemapProps } from "@/mock/basemap";
 
 export default function BaseMap() {
   const setSource = useBasemapStore((state) => state.setSource);
@@ -27,10 +12,11 @@ export default function BaseMap() {
 
   return (
     <div className={styles.container}>
-      <div>
+      <div className={styles["container-card"]}>
         {basemaps.map((item) => (
           <button onClick={() => handleBasemapToggle(item)} key={item.label}>
-            {item.label}
+            <Basemap image={item.image} label={item.label} />
+            <p>{item.label}</p>
           </button>
         ))}
       </div>
