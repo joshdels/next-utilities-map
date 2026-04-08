@@ -1,10 +1,17 @@
 .hero-container {
+  position: relative;
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-height: 100vh;
   padding: 4rem 0;
+}
+
+.hero-bg {
+  z-index: 0;
+  object-fit: cover;
+  opacity: 0.8;
 }
 
 .hero-tagline {
@@ -18,7 +25,7 @@
 }
 
 .hero-title {
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 900;
   line-height: 1.25;
   text-align: center;

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import maplibregl, { Map } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
+import { useBasemapStore } from "@/store/useBasemapStore";
 
 /**
  * Initializes a MapLibre map instance inside the given container.
@@ -13,6 +14,7 @@ import "maplibre-gl/dist/maplibre-gl.css";
  */
 export function useMap(containerRef: React.RefObject<HTMLDivElement | null>) {
   const mapRef = useRef<Map | null>(null);
+  const source = useBasemapStore((state) => state.source);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -20,8 +22,7 @@ export function useMap(containerRef: React.RefObject<HTMLDivElement | null>) {
 
     const map = new maplibregl.Map({
       container,
-      style:
-        "https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json",
+      style: source,
       center: [0, 0],
       zoom: 3,
       attributionControl: false,
@@ -36,6 +37,14 @@ export function useMap(containerRef: React.RefObject<HTMLDivElement | null>) {
       mapRef.current = null;
     };
   }, []);
+
+  useEffect(() => {
+    if (!mapRef.current) return;
+
+    mapRef.current.setStyle(source);
+
+    
+  }, [source]);
 
   return mapRef;
 }

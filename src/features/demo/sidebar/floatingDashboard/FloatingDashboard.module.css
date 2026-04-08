@@ -1,0 +1,13 @@
+.container {
+  margin: 1.25rem;
+  display: flex;
+  height: 87.5vh;
+  flex-direction: row;
+  gap: 0.25rem;
+  border-radius: 0.5;
+  background-color: white;
+  color: black;
+  transition-property: all;
+  animation-duration: 300s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}

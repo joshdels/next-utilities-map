@@ -2,7 +2,7 @@
 
 import { MapProvider } from "@/features/demo/MapProvider";
 import DemoNavbar from "@/features/demo/navbar/DemoNavbar";
-import FloatingDashboard from "@/features/demo/sidebar/FloatingDashboard";
+import FloatingDashboard from "@/features/demo/sidebar/floatingDashboard/FloatingDashboard";
 
 import dynamic from "next/dynamic";
 

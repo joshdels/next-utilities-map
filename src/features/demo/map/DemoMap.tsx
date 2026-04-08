@@ -1,13 +1,9 @@
-"use client";
-
-import { useRef, useEffect } from "react";
-import styles from "./Map.module.css";
 import { useMap } from "@/hooks/useMap";
+import { useMapLayers } from "@/hooks/useMapLayers";
 import { useGeoJSONStore } from "@/store/useGeoJSONStore";
 import { MapIcons } from "@/utils/mapIcons";
-import { lineLayer, nodeLayer } from "@/utils/layers";
-import { fitToBounds } from "@/utils/fitToBound";
-import { useMapEvents } from "@/hooks/useMapEvents";
+import { useRef } from "react";
+import styles from "./Map.module.css";
 
 export default function DemoMap() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -15,6 +11,8 @@ export default function DemoMap() {
 
   const lines = useGeoJSONStore((state) => state.lines);
   const nodes = useGeoJSONStore((state) => state.nodes);
+
+  useMapLayers(mapRef, lines, nodes);
 
   MapIcons(mapRef, nodes, {
     radius: 20,
@@ -26,37 +24,6 @@ export default function DemoMap() {
       pump: "#CC5500",
     },
   });
-
-  useEffect(() => {
-    const map = mapRef.current;
-    if (!map || !lines || !nodes) return;
-
-    const addLayers = () => {
-      if (!map.getSource("lines-data"))
-        map.addSource("lines-data", { type: "geojson", data: lines });
-      else
-        (map.getSource("lines-data") as maplibregl.GeoJSONSource).setData(
-          lines,
-        );
-
-      if (!map.getSource("nodes-data"))
-        map.addSource("nodes-data", { type: "geojson", data: nodes });
-      else
-        (map.getSource("nodes-data") as maplibregl.GeoJSONSource).setData(
-          nodes,
-        );
-
-      if (!map.getLayer("lines-layer")) map.addLayer(lineLayer);
-      if (!map.getLayer("nodes-layer")) map.addLayer(nodeLayer);
-
-      fitToBounds(map, lines);
-
-      useMapEvents(map);
-    };
-
-    if (map.loaded()) addLayers();
-    else map.once("load", addLayers);
-  }, [mapRef, lines, nodes]);
 
   return <div ref={containerRef} className={styles["map-container"]} />;
 }

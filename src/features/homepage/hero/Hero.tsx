@@ -2,6 +2,7 @@ import Link from "next/link";
 import styles from "./Hero.module.css";
 import "@/shared/styles/wrappers.css";
 import { scrollToSection } from "@/utils/scrollToPage";
+import Image from "next/image";
 
 export default function HeroSection() {
   return (
@@ -43,6 +44,15 @@ export default function HeroSection() {
             </button>
           </div>
         </section>
+      </div>
+      <div className={styles["hero-bg-wrapper"]}>
+        <Image
+          src={"/hero-background/background1.png"}
+          alt="hero-background"
+          fill
+          className={styles["hero-bg"]}
+          loading="eager"
+        />
       </div>
     </div>
   );

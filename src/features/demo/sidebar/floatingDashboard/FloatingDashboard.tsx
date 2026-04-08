@@ -1,23 +1,22 @@
-import { useState } from "react";
 import { ChevronsRight, X } from "lucide-react";
 
-import SideBar from "./SideBar";
+import SideBar from "../SideBar";
 import { useTabStore } from "@/store/useTabStore";
-import OverviewSection from "./Overview";
-import LegendSection from "./Legend";
+import OverviewSection from "../Overview";
+import LegendSection from "../Legend";
 import { formatText } from "@/utils/formatText";
+import BaseMap from "../basemap/Basemap";
 
 export default function FloatingDashboard() {
-  const [isOpen, setIsOpen] = useState(false);
-  const { activeTab } = useTabStore();
+  const { isOpen, setIsOpen, activeTab } = useTabStore();
 
   const toggleOpen = () => {
-    setIsOpen((prev) => !prev);
+    setIsOpen(!isOpen);
   };
 
   return (
     <div
-      className={`m-5 flex h-[88.5vh] flex-row gap-1 rounded-lg bg-white text-black shadow-md transition-all duration-300 ease-in-out ${isOpen ? "w-140" : "w-30"}`}
+      className={`m-5 flex h-[87.5vh] flex-row gap-1 rounded-lg bg-white text-black shadow-md transition-all duration-300 ease-in-out ${isOpen ? "w-120" : "w-30"}`}
     >
       <aside
         className={`rounded-md p-2 ${isOpen ? "bg-gray-200" : "bg-white"} `}
@@ -41,16 +40,17 @@ export default function FloatingDashboard() {
         <section>
           {activeTab == "overview" && <OverviewSection />}
           {activeTab == "legend" && <LegendSection />}
+          {activeTab == "basemap" && <BaseMap />}
         </section>
       </main>
-{!isOpen && (
-  <button
-    onClick={toggleOpen}
-    className="absolute top-2 right-1 rounded bg-gray-500 px-2 py-1 text-white text-xs hover:bg-blue-600"
-  >
-    <ChevronsRight className="h-4 w-4" />
-  </button>
-)}
+      {!isOpen && (
+        <button
+          onClick={toggleOpen}
+          className="absolute top-2 right-1 rounded bg-gray-500 px-2 py-1 text-xs text-white hover:bg-blue-600"
+        >
+          <ChevronsRight className="h-4 w-4" />
+        </button>
+      )}
     </div>
   );
 }
