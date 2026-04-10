@@ -1,13 +1,18 @@
 .navbar {
-  align-items: center;
-  background: #fff;
-  display: flex;
-  height: 6vh;
-  justify-content: space-between;
   position: sticky;
   top: 0;
+  z-index: 500;
   width: 100%;
-  z-index: 50;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 3px 0.5px rgb(0 0 0 / 0.1);
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 6vh;
 }
 
 .navbar-brand {
@@ -39,6 +44,10 @@
 }
 
 .navbar-primary-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.25rem;
   border: 1px solid #6b7280;
   border-radius: var(--border-radius-sm);
   font-size: 0.875rem;
@@ -48,6 +57,7 @@
 
 .navbar-primary-button:hover {
   background-color: #f3f4f6;
+  cursor: pointer;
 }
 
 .navbar-secondary-button {
@@ -61,4 +71,5 @@
 
 .navbar-secondary-button:hover {
   background-color: var(--color-blue-600);
+  cursor: pointer;
 }
