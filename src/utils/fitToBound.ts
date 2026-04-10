@@ -21,10 +21,10 @@ export function fitToBounds(map: maplibregl.Map, geojson: any) {
       padding: {
         top: 50,
         bottom: 50,
-        left: 500,
+        left: 50,
         right: 50,
       },
-      duration: 100,
+      duration: 1000,
     });
   }
 }

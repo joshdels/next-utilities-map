@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 92vh;
   padding: 4rem 0;
 }
 
@@ -67,17 +67,21 @@
 
 .hero-primary-button:hover {
   background-color: #1d4ed8;
+  cursor: pointer;
 }
 
 .hero-secondary-button {
   border: 1px solid #6b7280;
   border-radius: var(--border-radius-sm);
   padding: 0.75rem 1.5rem;
-  transition: background-color 0.2s;
+  transition: all 0.2s ease-in-out;
 }
 
 .hero-secondary-button:hover {
-  background-color: #f3f4f6;
+  color: var(--color-blue-600);
+  background-color: rgba(37, 99, 235, 0.05);
+  border: 1px solid var(--color-blue-600);
+  cursor: pointer;
 }
 
 @media screen and (width >= 480px) {

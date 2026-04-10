@@ -1,0 +1,60 @@
+.card-definition {
+  background-color: var(--color-gray-100);
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+
+.card-definition p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.heading {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-bottom: 2rem;
+  align-items: center;
+}
+
+.heading div {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  color: var(--color-gray-500);
+}
+
+.heading h1 {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.heading span {
+  color: var(--color-blue-600);
+}
+
+.card-benefits {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  text-align: justify;
+  text-justify: inter-word;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+
+.card-benefits h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.card-benefits span {
+  grid-column: span 2;
+}
+
+.card-benefits div {
+  grid-column: span 10;
+}
