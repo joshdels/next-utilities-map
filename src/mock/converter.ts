@@ -1,4 +1,5 @@
 import { ConverterCardProps } from "@/shared/components/card/Converter";
+import { FileStack, Settings, ShieldCheck, Zap } from "lucide-react";
 
 export const converters: ConverterCardProps[] = [
   {
@@ -16,18 +17,25 @@ export const converters: ConverterCardProps[] = [
 ];
 
 export const features: ConverterCardProps[] = [
-  { title: "formats Supported", definition: "We suppport this type of data" },
+  {
+    title: "formats Supported",
+    definition: "We suppport this type of data",
+    icon: FileStack,
+  },
   {
     title: "high-quality conversion",
     definition: "Besides using the stable open source software under the hood",
+    icon: Settings,
   },
   {
     title: "data security",
     definition:
       "No one excepts you will ever have access to your files. Data are encrypted and temporary and the moment you close your browser its not gone",
+    icon: ShieldCheck,
   },
   {
     title: "powerful api",
     definition: "This allows custom integration with you own app",
+    icon: Zap,
   },
 ];

@@ -13,6 +13,9 @@ export default function NavbarSection() {
               <Link href={"/"}>
                 <h1>InfraLens</h1>
               </Link>
+            </div>
+
+            <div className={styles["navbar-pages"]}>
               <Link href={"/case-study"}>
                 <span className={styles["navbar-brand"]}>Case Study</span>
               </Link>
