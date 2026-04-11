@@ -28,36 +28,35 @@
 
 .card-definition {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
 }
 
 .card-benefits {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
 }
 
-/* --- FOOTER TEXT --- */
 .container > div:last-child {
   font-size: 0.9rem;
   color: #6b7280;
 }
 
-/* --- RESPONSIVE --- */
-@media (min-width: 768px) {
-  .information-container {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    text-align: left;
+@media screen and (min-width: 480px) {
+  .card-definition {
+    grid-template-columns: repeat(1, 1fr);
   }
 
-  .information-context {
-    justify-content: flex-end;
+  .card-benefits {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .card-definition {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .information-container p {
-    margin: 0;
+  .card-benefits {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

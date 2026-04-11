@@ -51,10 +51,44 @@
   text-transform: capitalize;
 }
 
-.card-benefits span {
-  grid-column: span 2;
+@media screen and (min-width: 480px) {
+  .card-benefits {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  .card-benefits span {
+    grid-column: span 6;
+  }
+
+  .card-benefits div {
+    grid-column: span 6;
+  }
 }
 
-.card-benefits div {
-  grid-column: span 10;
+@media screen and (min-width: 764px) {
+  .card-benefits {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  .card-benefits span {
+    grid-column: span 3;
+  }
+
+  .card-benefits div {
+    grid-column: span 9;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .card-benefits {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  .card-benefits span {
+    grid-column: span 2;
+  }
+
+  .card-benefits div {
+    grid-column: span 10;
+  }
 }

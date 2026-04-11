@@ -94,10 +94,6 @@
 
 .card-study-highlight {
   background-color: rgb(255, 255, 255);
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: unset;
-  height: 25rem;
-  gap: 5rem;
 }
 
 .card-study-highlight .card-image {
@@ -156,4 +152,42 @@
 
 .card-content button:hover {
   color: var(--color-blue-700);
+}
+
+@media screen and (min-width: 480px) {
+  .card-study-highlight {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 1rem;
+  }
+
+  .card-study-highlight .card-image {
+    height: 18rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .card-study-highlight {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    grid-template-rows: unset;
+    height: 100%;
+    gap: 1rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .card-study-highlight {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    grid-template-rows: unset;
+    height: 25rem;
+    gap: 5rem;
+  }
+
+  .card-study-highlight .card-image {
+    height: 100%;
+  }
 }
