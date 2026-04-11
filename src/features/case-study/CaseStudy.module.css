@@ -6,8 +6,9 @@
 }
 
 .card-container-highlight {
+  display: grid;
   border-radius: 0.5rem;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .card-container {
@@ -16,20 +17,28 @@
   gap: 1rem;
 }
 
-@media screen and (width >= 480px) {
+@media screen and (min-width: 480px) {
   .card-container {
     grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
   }
 }
 
-@media screen and (width >= 768px) {
-    .card-container {
+@media screen and (min-width: 768px) {
+  .card-container {
     grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
   }
 }
 
-@media screen and (width >= 1200px) {
+@media screen and (min-width: 1024px) {
   .card-container {
     grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .card-container-highlight {
+    border-radius: 0.5rem;
+    gap: 1rem;
   }
 }

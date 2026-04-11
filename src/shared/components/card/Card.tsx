@@ -17,6 +17,7 @@ interface CardPriceProps extends CardProps {
 }
 
 interface CardStudyProps extends CardPriceProps {
+  id: number;
   tags: string[];
   image?: string;
   date: string;
@@ -74,6 +75,7 @@ export function CardPrice({
 }
 
 export function CardStudy({
+  id,
   title,
   description,
   tags,
@@ -86,7 +88,7 @@ export function CardStudy({
       className={`${styles["card-study"]} ${isHighlight ? styles["card-study-highlight"] : ""}`}
     >
       <div className={styles["card-image"]}>
-        <Image src={image} alt="image" fill  />
+        <Image src={image} alt="image" fill />
       </div>
 
       <div className={styles["card-content"]}>
