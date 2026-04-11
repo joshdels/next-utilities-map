@@ -1,6 +1,6 @@
 .information-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   gap: 1.5rem;
   width: 100%;
@@ -37,4 +37,20 @@
   font-weight: 600;
 }
 
+@media screen and (min-width: 480px) {
+  .information-container {
+    flex-direction: column;
+  }
+}
 
+@media screen and (min-width: 764px) {
+  .information-container {
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .information-container {
+    flex-direction: row;
+  }
+}

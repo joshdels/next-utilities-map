@@ -6,36 +6,39 @@ export const converters: ConverterCardProps[] = [
     title: "dxf",
     subname: "DXF Converter",
     definition:
-      "DXF is a common format for Computer Aided Design (CAD). It is developed by Autodesk and it is similar to the DWG format but it is more compatible with other software packages since it is open documented.",
+      "DXF (Drawing Exchange Format) is an open CAD format developed by Autodesk for interoperability between design tools. Unlike the proprietary DWG format, DXF is openly documented and widely supported across CAD and GIS software.",
   },
   {
     title: "gpkg",
-    subname: "Geopackage Converter",
+    subname: "GeoPackage Converter",
     definition:
-      "Geopackage is a compressed Geographic Information System (GIS) file type used for mapping",
+      "GeoPackage (GPKG) is an open, standards-based format for storing and transferring geospatial data. Built on SQLite, it supports vector features, raster tiles, and attribute data in a single portable file thus making it the preferred exchange format for modern GIS workflows.",
   },
 ];
 
 export const features: ConverterCardProps[] = [
   {
-    title: "formats Supported",
-    definition: "We suppport this type of data",
+    title: "Multiple Formats Supported",
+    definition:
+      "Convert between the most common CAD and GIS formats used in infrastructure and engineering workflows, including DXF, DWG, GeoPackage, Shapefile, and GeoJSON.",
     icon: FileStack,
   },
   {
-    title: "high-quality conversion",
-    definition: "Besides using the stable open source software under the hood",
+    title: "High-Quality Conversion",
+    definition:
+      "Built on proven open-source libraries to ensure geometry integrity, attribute fidelity, and consistent coordinate handling across every conversion.",
     icon: Settings,
   },
   {
-    title: "data security",
+    title: "Data Security",
     definition:
-      "No one excepts you will ever have access to your files. Data are encrypted and temporary and the moment you close your browser its not gone",
+      "Your files are encrypted in transit, processed in isolated sessions, and permanently deleted when your session ends. No data is stored, shared, or logged.",
     icon: ShieldCheck,
   },
   {
-    title: "powerful api",
-    definition: "This allows custom integration with you own app",
+    title: "Powerful API",
+    definition:
+      "Integrate conversions directly into your own applications via our REST API. Automate CAD to GIS pipelines without manual file handling.",
     icon: Zap,
   },
 ];

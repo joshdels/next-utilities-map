@@ -1,5 +1,6 @@
 "use client";
 
+import FooterSection from "@/features/homepage/footer/Footer";
 import HeroSection from "@/features/homepage/hero/Hero";
 import InteractiveMap from "@/features/homepage/interactiveMap/InteractiveMap";
 
@@ -17,6 +18,7 @@ export default function Homepage() {
       <ProcessSection />
       <InteractiveMap />
       <PricingSection />
+      <FooterSection />
     </div>
   );
 }

@@ -1,9 +1,14 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 import styles from "./Navbar.module.css";
 import "@/shared/styles/wrappers.css";
-import { Lock } from "lucide-react";
+import { Lock, Menu } from "lucide-react";
 
 export default function NavbarSection() {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
   return (
     <div className={styles.navbar}>
       <div className="page-wrapper">
@@ -42,6 +47,21 @@ export default function NavbarSection() {
                 </button>
               </Link>
             </div>
+
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className={styles["mobile-menu"]}
+            >
+              <Menu />
+            </button>
+
+            {isOpen && (
+              <div className={styles["mobile-dropdown"]}>
+                <Link href={"/case-study"}>Case Study</Link>
+                <Link href={"/tools"}>Tools</Link>
+                <Link href={"/login"}>Member</Link>
+              </div>
+            )}
           </div>
         </div>
       </div>
