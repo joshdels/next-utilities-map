@@ -1,4 +1,5 @@
 interface StudiesProps {
+  id: number;
   title: string;
   tags: string[];
   description: string;
@@ -9,6 +10,7 @@ interface StudiesProps {
 
 export const studies: StudiesProps[] = [
   {
+    id: 1,
     title: "Digital Water Pipelines",
     tags: ["Water Utilities", "Pipelines"],
     description: "Made for water pipelines for cities",
@@ -17,6 +19,7 @@ export const studies: StudiesProps[] = [
     date: "April 6, 2026",
   },
   {
+    id: 2,
     title: "200% Faster Processing",
     tags: ["Processing"],
     description:
@@ -25,6 +28,7 @@ export const studies: StudiesProps[] = [
     date: "April 2, 2026",
   },
   {
+    id: 3,
     title: "Looking for the Sewer?",
     tags: ["WebGIS", "Sewer"],
     description:
@@ -33,9 +37,11 @@ export const studies: StudiesProps[] = [
     date: "April 7, 2026",
   },
   {
+    id: 4,
     title: "Show Everyone",
     tags: ["WebGIS"],
-    description: "Your presentation of CAD and GIS data requires you to show it to your stakeholders",
+    description:
+      "Your presentation of CAD and GIS data requires you to show it to your stakeholders",
     image: "/case-study/3.png",
     date: "April 7, 2026",
   },

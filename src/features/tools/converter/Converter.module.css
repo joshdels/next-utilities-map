@@ -1,24 +1,24 @@
 .container {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 2rem;
-  padding: 3rem 0rem;
+  padding: 3rem 0;
   text-align: center;
 }
 
 .container button {
-  display: flex;
-  gap: 0.75rem;
-  background-color: var(--color-blue-500);
-  padding: 1rem 1.25rem;
-  border-radius: 0.5rem;
-  justify-content: center;
   align-items: center;
+  background-color: var(--color-blue-500);
+  border-radius: 0.5rem;
   color: white;
+  cursor: pointer;
+  display: flex;
   font-size: 1.25rem;
   font-weight: 600;
-  cursor: pointer;
+  gap: 0.75rem;
+  justify-content: center;
+  padding: 1rem 1.25rem;
   transition: 0.2s ease;
 }
 
@@ -37,11 +37,15 @@
 }
 
 .container > div:last-child {
-  font-size: 0.9rem;
   color: #6b7280;
+  font-size: 0.9rem;
 }
 
-@media screen and (min-width: 480px) {
+.statistics p {
+  font-size: 1.5rem;
+}
+
+@media screen and (width >= 480px) {
   .card-definition {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -51,7 +55,7 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
   .card-definition {
     grid-template-columns: repeat(2, 1fr);
   }

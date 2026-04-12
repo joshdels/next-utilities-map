@@ -1,6 +1,6 @@
 "use client";
 
-import FooterSection from "@/features/homepage/footer/Footer";
+import FooterSection from "@/shared/components/footer/Footer";
 import HeroSection from "@/features/homepage/hero/Hero";
 import InteractiveMap from "@/features/homepage/interactiveMap/InteractiveMap";
 

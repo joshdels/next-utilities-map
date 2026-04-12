@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import type maplibregl from "maplibre-gl";
 import { lineLayer, nodeLayer } from "@/utils/layers";
 import { fitToBounds } from "@/utils/fitToBound";
-import { useMapEvents } from "@/hooks/useMapEvents";
+import { useMapEvents } from "@/hooks/maps/useMapEvents";
 
 /**
  *

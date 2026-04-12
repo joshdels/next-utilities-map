@@ -1,4 +1,4 @@
-import { File, LucideIcon } from "lucide-react";
+import { File, LucideIcon, X } from "lucide-react";
 import styles from "./Converter.module.css";
 
 export interface ConverterCardProps {
@@ -7,6 +7,11 @@ export interface ConverterCardProps {
   definition: string;
   icon?: LucideIcon;
 }
+
+type UploadedFileCardProps = {
+  title: string;
+  onClick: () => void;
+};
 
 export function ConverterDefinitionCard({
   title,
@@ -39,6 +44,20 @@ export function ConverterBenefitsCard({
         <h1>{title}</h1>
         <p>{definition}</p>
       </div>
+    </div>
+  );
+}
+
+export function UploadedFileCard({ title, onClick }: UploadedFileCardProps) {
+  return (
+    <div className={styles["file-container"]}>
+      <span>
+        <File />
+      </span>
+      <p>{title}</p>
+      <button onClick={onClick}>
+        <X />
+      </button>
     </div>
   );
 }

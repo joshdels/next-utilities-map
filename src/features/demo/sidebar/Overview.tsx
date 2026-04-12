@@ -1,4 +1,4 @@
-import ItemOverview from "@/hooks/useItemOverview";
+import ItemOverview from "@/hooks/maps/useItemOverview";
 
 export default function OverviewSection() {
   return (

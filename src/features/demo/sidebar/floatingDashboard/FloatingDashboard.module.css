@@ -1,13 +1,13 @@
 .container {
-  margin: 1.25rem;
+  animation-duration: 300s;
+  background-color: white;
+  border-radius: 0.5rem;
+  color: black;
   display: flex;
-  height: 87.5vh;
   flex-direction: row;
   gap: 0.25rem;
-  border-radius: 0.5;
-  background-color: white;
-  color: black;
+  height: 87.5vh;
+  margin: 1.25rem;
   transition-property: all;
-  animation-duration: 300s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
