@@ -1,7 +1,7 @@
 .card-definition {
   background-color: var(--color-gray-100);
-  padding: 2rem;
   border-radius: 0.5rem;
+  padding: 2rem;
 }
 
 .card-definition p {
@@ -10,25 +10,25 @@
 }
 
 .heading {
+  align-items: center;
   display: flex;
+  flex-direction: row;
   gap: 2rem;
   justify-content: space-between;
-  flex-direction: row;
   margin-bottom: 2rem;
-  align-items: center;
 }
 
 .heading div {
-  display: flex;
-  gap: 0.5rem;
   align-items: center;
   color: var(--color-gray-500);
+  display: flex;
+  gap: 0.5rem;
 }
 
 .heading h1 {
-  text-transform: uppercase;
-  font-weight: 700;
   font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .heading span {
@@ -36,14 +36,14 @@
 }
 
 .card-benefits {
+  align-items: center;
+  border-radius: 0.5rem;
   display: grid;
+  gap: 1rem;
   grid-template-columns: repeat(12, 1fr);
+  padding: 2rem;
   text-align: justify;
   text-justify: inter-word;
-  align-items: center;
-  padding: 2rem;
-  border-radius: 0.5rem;
-  gap: 1rem;
 }
 
 .card-benefits span {
@@ -57,14 +57,21 @@
 .card-benefits h1 {
   font-size: 1.5rem;
   font-weight: 600;
-  text-transform: capitalize;
   margin-bottom: 1rem;
+  text-transform: capitalize;
 }
 
-@media screen and (min-width: 480px) {
+.file-container {
+  background-color: var(--color-gray-100);
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+@media screen and (width >= 480px) {
   .card-benefits {
+    gap: 1rem;
     grid-template-columns: repeat(12, 1fr);
-    gap: 1rem
   }
 
   .card-benefits span {
@@ -76,10 +83,10 @@
   }
 }
 
-@media screen and (min-width: 764px) {
+@media screen and (width >= 764px) {
   .card-benefits {
-    grid-template-columns: repeat(12, 1fr);
     gap: 2rem;
+    grid-template-columns: repeat(12, 1fr);
   }
 
   .card-benefits span {
@@ -91,10 +98,10 @@
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (width >= 1024px) {
   .card-benefits {
-    grid-template-columns: repeat(12, 1fr);
     gap: 1rem;
+    grid-template-columns: repeat(12, 1fr);
   }
 
   .card-benefits span {

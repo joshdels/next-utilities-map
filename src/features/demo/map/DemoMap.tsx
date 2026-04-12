@@ -1,5 +1,5 @@
-import { useMap } from "@/hooks/useMap";
-import { useMapLayers } from "@/hooks/useMapLayers";
+import { useMap } from "@/hooks/maps/useMap";
+import { useMapLayers } from "@/hooks/maps/useMapLayers";
 import { useGeoJSONStore } from "@/store/useGeoJSONStore";
 import { MapIcons } from "@/utils/mapIcons";
 import { useRef } from "react";

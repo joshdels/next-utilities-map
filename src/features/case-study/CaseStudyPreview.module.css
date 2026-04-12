@@ -1,0 +1,29 @@
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 92vh;
+  padding: 3rem;
+  text-align: center;
+}
+
+.container h1 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.container-not-found {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  min-height: 92vh;
+  text-align: center;
+}
+
+.container-not-found h1 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}

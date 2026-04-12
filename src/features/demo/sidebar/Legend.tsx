@@ -1,4 +1,4 @@
-import { useLegend } from "@/hooks/useLegend";
+import { useLegend } from "@/hooks/maps/useLegend";
 import { formatText } from "@/utils/formatText";
 import { NODE_TYPE_COLORS } from "@/utils/layers";
 

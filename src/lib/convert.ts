@@ -7,6 +7,13 @@ const STATUS_URL =
 const DOWNLOAD_URL =
   "https://infralens-backend.topmapsolutions.com/jobs/download/";
 
+/**
+ * Takes a dxf files and converts it to geopackage using vps server backend
+ * It might take a couple of mights to an hour depending on the size of the file
+ *
+ * @param file
+ * @returns
+ */
 export const uploadFile = async (file: File) => {
   const formData = new FormData();
   formData.append("file", file);

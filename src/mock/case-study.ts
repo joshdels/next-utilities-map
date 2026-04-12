@@ -24,7 +24,6 @@ export const studies: StudiesProps[] = [
     tags: ["Processing"],
     description:
       "CAD files is already a messy file and processing takes a longer time converting to GIS ready data.",
-    isHighlight: true,
     image: "/case-study/1.png",
     date: "April 2, 2026",
   },

@@ -1,7 +1,8 @@
+import Link from "next/link";
+import { FaLinkedin } from "react-icons/fa";
+import { Mail } from "lucide-react";
 import "@/shared/styles/wrappers.css";
 import styles from "./Footer.module.css";
-import { FaLinkedin } from "react-icons/fa";
-import Link from "next/link";
 
 export default function FooterSection() {
   return (
@@ -15,9 +16,21 @@ export default function FooterSection() {
               Engineering projects specifically Utilities, Pipelines and
               networks.
             </p>
-            <Link href={"https://www.linkedin.com/company/topmap-solutions/"}>
-              <FaLinkedin color="gray" size={30} />
-            </Link>
+            <div className={styles.contacts}>
+              <div className={styles["contact-item"]}>
+                <Mail size={30} color="gray" />
+                <span>joshdels@topmapsolutions.com</span>
+              </div>
+
+              <Link
+                href="https://www.linkedin.com/company/topmap-solutions/"
+                target="_blank"
+                className={styles["contact-item"]}
+              >
+                <FaLinkedin size={30} color="gray" />
+                <span>TopMap Solutions</span>
+              </Link>
+            </div>
           </div>
 
           <div className={styles["section-support"]}>

@@ -11,8 +11,6 @@ export default function CaseStudySection() {
     <div className="page-wrapper-secondary">
       <div className="page-wrapper-grid">
         <div className={styles.container}>
-          <h1>Case Studies</h1>
-
           {highlight && (
             <div className={styles["card-container-highlight"]}>
               {highlight.map((study) => (

@@ -1,40 +1,41 @@
 .container {
-  padding: 2rem 0;
-  gap: 2rem;
   display: flex;
   flex-direction: column;
+  gap: 2rem;
+  min-height: 92vh;
+  padding: 2rem 0;
 }
 
 .card-container-highlight {
-  display: grid;
   border-radius: 0.5rem;
+  display: grid;
   gap: 2rem;
 }
 
 .card-container {
-  display: grid;
   border-radius: 0.5rem;
+  display: grid;
   gap: 1rem;
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (width >= 480px) {
   .card-container {
+    gap: 2rem;
     grid-template-columns: repeat(1, 1fr);
-    gap: 2rem;
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
   .card-container {
+    gap: 2rem;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (width >= 1024px) {
   .card-container {
-    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .card-container-highlight {
