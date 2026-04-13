@@ -10,11 +10,16 @@ import { converters, features } from "@/mock/converter";
 import Information from "./Information";
 import { useUploadStats } from "@/hooks/api/useUploadStat";
 import { useConverter } from "@/hooks/api/useConvert";
+import ConverterStatus from "./ConverterStatus";
 
 export default function ConverterSection() {
   const fileStat = useUploadStats();
+
   const {
     selectedFile,
+    status,
+    progress,
+    downloadUrl,
     isUploading,
     inputRef,
     openFilePicker,
@@ -38,12 +43,17 @@ export default function ConverterSection() {
               onChange={onFileChange}
             />
 
-            {!selectedFile ? (
+            {!selectedFile && status === "idle" && (
               <>
                 <button onClick={openFilePicker}>
                   <FilePlus color="white" />
                   Select File
                 </button>
+                <p>
+                  The system currently supports uploading a single DXF file up
+                  to 100MB for cloud processing. This feature is in its
+                  experimental stage.
+                </p>
 
                 <div className={styles["card-definition"]}>
                   {converters.map((item, index) => (
@@ -57,17 +67,22 @@ export default function ConverterSection() {
                   ))}
                 </div>
               </>
-            ) : (
+            )}
+
+            {selectedFile && (
               <>
                 <UploadedFileCard
                   title={selectedFile.name}
-                  onClick={removeFile}
+                  onClick={status === "processing" ? undefined : removeFile}
                 />
 
-                <button onClick={upload} disabled={isUploading}>
-                  <RefreshCcw color="white" />
-                  {isUploading ? "Uploading..." : "Convert"}
-                </button>
+                <ConverterStatus
+                  status={status}
+                  progress={progress}
+                  upload={upload}
+                  isUploading={isUploading}
+                  downloadUrl={downloadUrl ?? undefined}
+                />
               </>
             )}
 

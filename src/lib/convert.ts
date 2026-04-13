@@ -14,6 +14,14 @@ const DOWNLOAD_URL =
  * @param file
  * @returns
  */
+
+export const getTaskStatus = async (taskId: string) => {
+  const res = await fetch(`${STATUS_URL}${taskId}/`);
+  return await res.json();
+};
+
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
 export const uploadFile = async (file: File) => {
   const formData = new FormData();
   formData.append("file", file);
@@ -23,14 +31,15 @@ export const uploadFile = async (file: File) => {
     body: formData,
   });
 
-  if (!response.ok) throw new Error("Upload failed");
+  if (response.status === 429) {
+    throw new Error("RATE_LIMIT");
+  }
 
-  return await response.json();
-};
+  if (!response.ok) {
+    throw new Error("Upload failed");
+  }
 
-export const getTaskStatus = async (taskId: string) => {
-  const res = await fetch(`${STATUS_URL}${taskId}`);
-  return await res.json();
+  return response.json();
 };
 
 export const waitForTask = async (
@@ -39,40 +48,53 @@ export const waitForTask = async (
 ) => {
   let attempts = 0;
 
-  return new Promise((resolve, reject) => {
-    const interval = setInterval(async () => {
-      try {
-        attempts++;
+  while (true) {
+    attempts++;
 
-        const data = await getTaskStatus(taskId);
+    if (attempts > 200) {
+      throw new Error("TIMEOUT");
+    }
 
-        onUpdate?.(data);
+    const res = await fetch(`${STATUS_URL}${taskId}/`);
 
-        console.log("status:", data.status);
+    if (res.status === 429) {
+      console.warn("Rate limited. slowing down...");
+      await sleep(15000);
+      continue;
+    }
 
-        if (data.status === "done" || data.status === "SUCCESS") {
-          clearInterval(interval);
-          resolve(data);
-        }
+    if (!res.ok) {
+      throw new Error(`HTTP ${res.status}`);
+    }
 
-        if (data.status === "failed" || data.status === "FAILURE") {
-          clearInterval(interval);
-          reject(new Error("Task failed"));
-        }
+    const data = await res.json();
 
-        if (attempts > 120) {
-          clearInterval(interval);
-          reject(new Error("Task timeout"));
-        }
-      } catch (err) {
-        clearInterval(interval);
-        reject(err);
-      }
-    }, 2000);
-  });
+    onUpdate?.(data);
+
+    if (data.status === "done" || data.status === "SUCCESS") {
+      return data;
+    }
+
+    if (data.status === "failed" || data.status === "FAILURE") {
+      throw new Error("Task failed");
+    }
+
+    let delay = 5000;
+
+    if (attempts > 10) delay = 15000;
+    if (attempts > 30) delay = 30000;
+    if (attempts > 60) delay = 60000;
+
+    await sleep(delay);
+  }
 };
 
 export const downloadFile = async (taskId: string) => {
-  const res = await fetch(`${DOWNLOAD_URL}${taskId}`);
-  return await res.json();
+  const res = await fetch(`${DOWNLOAD_URL}${taskId}/`);
+
+  if (!res.ok) {
+    throw new Error(`Download failed: ${res.status}`);
+  }
+
+  return res.json();
 };

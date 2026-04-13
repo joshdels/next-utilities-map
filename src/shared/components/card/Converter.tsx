@@ -10,7 +10,7 @@ export interface ConverterCardProps {
 
 type UploadedFileCardProps = {
   title: string;
-  onClick: () => void;
+  onClick?: () => void;
 };
 
 export function ConverterDefinitionCard({
@@ -51,11 +51,13 @@ export function ConverterBenefitsCard({
 export function UploadedFileCard({ title, onClick }: UploadedFileCardProps) {
   return (
     <div className={styles["file-container"]}>
-      <span>
-        <File />
-      </span>
-      <p>{title}</p>
-      <button onClick={onClick}>
+      <div className={styles["name-section"]}>
+        <span>
+          <File />
+        </span>
+        <p>{title}</p>
+      </div>
+      <button onClick={onClick} disabled={!onClick}>
         <X />
       </button>
     </div>
