@@ -1,3 +1,5 @@
+"use client";
+
 import CaseStudyPreview from "@/features/case-study/CaseStudyPreview";
 import FooterSection from "@/shared/components/footer/Footer";
 import NavbarSection from "@/shared/components/navbar/Navbar";

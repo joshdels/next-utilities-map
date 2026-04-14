@@ -1,11 +1,15 @@
-import { studies } from "@/mock/case-study";
 import Link from "next/link";
-import "@/shared/styles/wrappers.css";
 import Image from "next/image";
+import { useCaseStudy } from "@/hooks/api/useCaseStudy";
 import styles from "./CaseStudyPreview.module.css";
+import { Skeleton } from "@/shared/components/loading/Skeleton";
+import { formatDate } from "@/utils/date";
+import "@/shared/styles/wrappers.css";
 
 export default function CaseStudyPreview({ id }: { id: string }) {
-  const study = studies.find((s) => String(s.id) === id);
+  const { study, loading } = useCaseStudy(Number(id));
+
+  if (loading) return <Skeleton />;
 
   if (!study) {
     return (
@@ -28,9 +32,32 @@ export default function CaseStudyPreview({ id }: { id: string }) {
     <div className="page-wrapper">
       <div className="page-wrapper-grid">
         <div className={styles.container}>
-          <Image src={study.image || ""} alt="" width={500} height={500} />
-          <h1>{study.title}</h1>
-          <p>{study.description}</p>
+          <div className={styles.heading}>
+            <div className={styles.meta}>
+              <p className={styles.date}>{formatDate(study.created_at)}</p>
+
+              <div className={styles.tags}>
+                {study.tags?.map((tag, index) => (
+                  <span key={index} className={styles.tag}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <h1 className={styles.title}>{study.title}</h1>
+
+            <p className={styles.description}>{study.description}</p>
+          </div>
+
+          <div className={styles["image-wrapper"]}>
+            <Image
+              src={study.image || ""}
+              alt={study.title}
+              fill
+              className={styles.image}
+            />
+          </div>
         </div>
       </div>
     </div>

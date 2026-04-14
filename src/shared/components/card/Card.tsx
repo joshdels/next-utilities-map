@@ -1,6 +1,7 @@
 import { LucideIcon } from "lucide-react";
 import styles from "./Card.module.css";
 import Image from "next/image";
+import { formatDate } from "@/utils/date";
 
 export interface CardProps {
   index?: number;
@@ -20,7 +21,7 @@ interface CardStudyProps extends CardPriceProps {
   id: number;
   tags: string[];
   image?: string;
-  date: string;
+  created_at?: string;
   isHighlight?: boolean;
 }
 
@@ -80,7 +81,7 @@ export function CardStudy({
   description,
   tags,
   image = "",
-  date,
+  created_at,
   isHighlight = false,
 }: CardStudyProps) {
   return (
@@ -103,7 +104,7 @@ export function CardStudy({
         </div>
 
         <h1>{title}</h1>
-        <span>{date}</span>
+        <span>{formatDate(created_at)}</span>
         <p>{description}</p>
         <button>view full case study</button>
       </div>
