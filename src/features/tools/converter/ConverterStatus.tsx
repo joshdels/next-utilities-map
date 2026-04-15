@@ -1,4 +1,4 @@
-import type { ConvertState } from "@/hooks/api/useConvert";
+import type { ConvertState } from "@/hooks/apis/useConvert";
 
 type ConverterStatusProps = {
   status: ConvertState;

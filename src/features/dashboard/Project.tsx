@@ -1,7 +1,7 @@
 import ProjectCard from "./ProjectCard";
 import ProjectSearch from "./ProjectSearch";
 import ProjectCreate from "./ProjectCreate";
-import { useProjects } from "@/hooks/api/useProject";
+import { useProjects } from "@/hooks/apis/useProject";
 import { ProjectProps } from "@/lib/projects";
 
 export default function Projects() {

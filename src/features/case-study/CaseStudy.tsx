@@ -1,7 +1,7 @@
 import { CardStudy } from "@/shared/components/card/Card";
 import styles from "./CaseStudy.module.css";
 import Link from "next/link";
-import { useCaseStudies } from "@/hooks/api/useCaseStudy";
+import { useCaseStudies } from "@/hooks/apis/useCaseStudy";
 import { Skeleton } from "@/shared/components/loading/Skeleton";
 
 export default function CaseStudySection() {
@@ -9,7 +9,12 @@ export default function CaseStudySection() {
 
   if (loading) return <Skeleton />;
 
-  if (error) return <div><h1>erorr...</h1> </div>;
+  if (error)
+    return (
+      <div>
+        <h1>erorr...</h1>{" "}
+      </div>
+    );
 
   return (
     <div className="page-wrapper-secondary">

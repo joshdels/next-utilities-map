@@ -6,6 +6,12 @@
   padding: 5rem 0;
 }
 
+.content {
+  margin: 0 auto;
+  max-width: 800px;
+  width: 100%;
+}
+
 .heading {
   display: flex;
   flex-direction: column;
@@ -93,7 +99,7 @@
   }
 
   .image-wrapper {
-    height: 30rem;
+    height: 40rem;
   }
 }
 
@@ -103,6 +109,6 @@
   }
 
   .image-wrapper {
-    height: 50rem;
+    height: 60rem;
   }
 }

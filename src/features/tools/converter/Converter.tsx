@@ -8,8 +8,8 @@ import {
 } from "@/shared/components/card/Converter";
 import { converters, features } from "@/mock/converter";
 import Information from "./Information";
-import { useUploadStats } from "@/hooks/api/useUploadStat";
-import { useConverter } from "@/hooks/api/useConvert";
+import { useUploadStats } from "@/hooks/apis/useUploadStat";
+import { useConverter } from "@/hooks/apis/useConvert";
 import ConverterStatus from "./ConverterStatus";
 
 export default function ConverterSection() {

@@ -9,7 +9,7 @@ interface StudiesProps {
   tags: string[];
   description: string;
   image?: string;
-  isHighlight?: boolean;
+  is_highlight?: boolean;
   date: string;
 }
 
@@ -27,7 +27,7 @@ interface StudyDetail {
   tags: string[];
   description: string;
   image?: string;
-  isHighlight?: boolean;
+  is_highlight?: boolean;
   created_at: string;
   blocks: Block[];
 }
@@ -64,11 +64,11 @@ export function useCaseStudies() {
   }, []);
 
   const highlight = useMemo(
-    () => studies.filter((s) => s.isHighlight),
+    () => studies.filter((s) => s.is_highlight),
     [studies],
   );
   const normal = useMemo(
-    () => studies.filter((s) => !s.isHighlight),
+    () => studies.filter((s) => !s.is_highlight),
     [studies],
   );
   return {
