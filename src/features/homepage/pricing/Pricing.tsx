@@ -11,7 +11,7 @@ export default function PricingSection() {
       <div className="page-wrapper-grid">
         <div className={styles.container}>
           <span>How we can work together</span>
-          <h1>Straightforward engagement. No surprises</h1>
+          <h1>Here's exactly what happens when you reach out</h1>
           <p>
             We scope every project before we charge anything. You know exactly
             what you're getting and how much it cost then the work begins

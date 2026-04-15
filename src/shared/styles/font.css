@@ -1,0 +1,24 @@
+.heading {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+@media screen and (width >= 480px) {
+  .heading {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (width >= 768px) {
+  .heading {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (width >= 1200px) {
+  .heading {
+    font-size: 3.5rem;
+  }
+}

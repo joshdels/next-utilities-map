@@ -36,16 +36,6 @@ export default function NavbarSection() {
                   Member
                 </button>
               </Link>
-
-              <Link
-                href="https://calendly.com/assistantgisjosh/utilty-mapping-consultation"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <button className={styles["navbar-secondary-button"]}>
-                  Book Demo
-                </button>
-              </Link>
             </div>
 
             <button

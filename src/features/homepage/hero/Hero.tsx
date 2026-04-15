@@ -12,17 +12,16 @@ export default function HeroSection() {
           <p className={styles["hero-tagline"]}>CAD to GIS. Done right.</p>
 
           <h1 className={styles["hero-title"]}>
-            Turn Scattered CAD Data into a {"  "}
+            Your Water Network CAD Files Are Stuck {"  "}
           </h1>
           <span className={styles["hero-subtitle"]}>
-            Live, Shareable WebGIS Platform
+            Your Team Shouldn't Be.
           </span>
 
           <p className={styles["hero-description"]}>
-            We clean and structure your CAD data, transforming it into an
-            interactive map and dashboard your organization can use from day one
-            backed by a secure, enterprise-grade geodatabase built for long-term
-            reliability.
+            InfraLens turns your water district's CAD drawings into a live,
+            shareable map your whole team can access scoped, priced, and
+            delivered in 2 - 4 weeks.
           </p>
 
           <div className={styles["hero-actions"]}>
@@ -33,7 +32,7 @@ export default function HeroSection() {
               target="_blank"
             >
               <button className={styles["hero-primary-button"]}>
-                Book a Demo
+                Book a Free Discovery Call
               </button>
             </Link>
             <button

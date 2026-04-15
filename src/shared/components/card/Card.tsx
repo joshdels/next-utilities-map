@@ -8,7 +8,6 @@ export interface CardProps {
   title: string;
   icon?: LucideIcon;
   definition?: string;
-  steps?: string[];
 }
 
 interface CardPriceProps extends CardProps {
@@ -29,28 +28,18 @@ export function CardProcess({
   index,
   title,
   definition,
-  steps,
   icon: Icon,
 }: CardProps) {
   return (
     <div className={styles.card}>
+      <span className={styles["card-index"]}>0{index}</span>
       {Icon && (
         <span className={styles["card-icon"]}>
-          <Icon size={80} />
+          <Icon size={60} />
         </span>
       )}
-      <h1>
-        {index}. {""}
-        {title}
-      </h1>
+      <h1>{title}</h1>
       <p>{definition}</p>
-      {steps && steps.length > 0 && (
-        <ul>
-          {steps.map((step, i) => (
-            <li key={i}>{step}</li>
-          ))}
-        </ul>
-      )}
     </div>
   );
 }

@@ -11,11 +11,6 @@ export default function FooterSection() {
         <div className={styles.container}>
           <div className={styles["section-heading"]}>
             <h1>Infralens</h1>
-            <p>
-              Infralens is a sub focus of TopMap Solutions which focuses on
-              Engineering projects specifically Utilities, Pipelines and
-              networks.
-            </p>
             <div className={styles.contacts}>
               <div className={styles["contact-item"]}>
                 <Mail size={30} color="gray" />

@@ -32,15 +32,17 @@ export const offers: PricingProps[] = [
       "Fixed price after scope approval",
       "Delivered in 2-4 weeks",
       "Full data handoff included",
+      "Starting at $500",
     ],
   },
   {
     title: "Project + Maintenance",
-    description:
-      "Everything in the one-time project, plus we handle updates, hosting, and ongoing improvements.",
+    description: "Everything above plus hosting, updates, and ongoing support.",
     features: [
       "Fixed project price",
-      "Monthly maintenance plan with dedicated support",
+      "Monthly maintenance plan",
+      "Dedicated Support",
+      "Starting at $3,000 after delivery",
     ],
     isHighlight: true,
   },

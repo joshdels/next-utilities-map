@@ -1,43 +1,29 @@
-import { FileUp, MapPinned, RefreshCw, Wrench } from "lucide-react";
+import { FileUp, MapPinned, RotateCw, Wrench } from "lucide-react";
 import { CardProps } from "@/shared/components/card/Card";
 
 export const process: CardProps[] = [
   {
     title: "Share Your Files",
     icon: FileUp,
-    definition: "Upload your CAD, PDF, or GIS files",
-    steps: [
-      "Identify the layers that matter most such as pipes, valves, meters.",
-      "We flag what needs cleanup before conversion begins.",
-    ],
+    definition:
+      "Drop your CAD, PDF, or GIS files. We flag the layers that matter — pipes, valves, meters — and note what needs fixing before we touch anything.",
   },
   {
     title: "We Clean & Convert",
-    icon: RefreshCw,
-    definition: "Preprocess and build a clean GIS network",
-    steps: [
-      "Georeference your CAD or PDF files.",
-      "Convert to a consistent GIS schema.",
-      "Fix topology and connectivity issues.",
-    ],
+    icon: RotateCw,
+    definition:
+      "Georeferencing, topology fixes, and proper structure — not just exported shapes. You get a real GIS network, ready to work with.",
   },
   {
     title: "Get Your Live Map",
     icon: MapPinned,
-    definition: "A simple WebGIS viewer built for your team",
-    steps: [
-      "One clear map for operations, planning, and field crews.",
-      "Focused on clarity, no messy dashboards.",
-    ],
+    definition:
+      "One clear map for operations, planning, and field crews. No steep learning curve, no cluttered dashboards - just the view your team needs",
   },
   {
     title: "We Handle the Rest",
     icon: Wrench,
-    definition: "Ongoing maintenance, storage, and hosting",
-    steps: [
-      "We manage your files, updates, and ongoing changes.",
-      "Database storage and cloud hosting included.",
-      "A clean, maintained WebGIS without the complication.",
-    ],
+    definition:
+      "Hosting, storage, updates, and ongoing maintenance — all included if you want it. If not, the data is fully yours to take anywhere.",
   },
 ];
