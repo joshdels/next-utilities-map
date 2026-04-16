@@ -9,17 +9,17 @@ export const lists: PricingProps[] = [
   {
     title: "Free Discovery Call",
     description:
-      "We review your files together, assess what you have, and give you an honest breakdown of what's involved with no obligation, no complications.",
+      "We review your files together, assess what you have, and give you an honest breakdown - no obligation.",
   },
   {
     title: "Fixed-Scope Proposal",
     description:
-      "You get a clear, written scope outlining what we'll convert, what we'll build, and the total cost. One number, no hourly surprises.",
+      "A clear, written scope outlining what we'll convert, what we'll build, and the total cost.",
   },
   {
     title: "Delivery + Optional Ongoing Maintenance",
     description:
-      "We deliver your live WebGIS. If you want ongoing support updates, hosting, and data management. We offer a simple monthly plan. If not, the data is fully yours.",
+      "We deliver your live Interactive Web Map. Want ongoing hosting, updates, and support? Simple monthly plan. If not, the data is yours.",
   },
 ];
 

@@ -7,12 +7,14 @@ export default function InteractiveMap() {
     <div id="interactive-map" className="page-wrapper">
       <div className="page-wrapper-grid">
         <div className={styles.container}>
-          <h1>Showcase Your Own Plan With Ease</h1>
-
-          <p>
-            Experience your own data visible and easy to access by your
-            Team/Organization
-          </p>
+          <div className="heading-container">
+            <span className="sub-heading">What you'll probably want</span>
+            <h1 className="heading">Showcase Your Own Plan With Ease</h1>
+            <p className="description">
+              Experience your own data visible and easy to access by your
+              Team/Organization
+            </p>
+          </div>
 
           <Link href={"/demo"} className={styles["preview-link"]}>
             Preview More

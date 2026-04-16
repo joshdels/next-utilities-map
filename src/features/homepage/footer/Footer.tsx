@@ -1,7 +1,7 @@
-import "@/shared/styles/wrappers.css";
-import styles from "./Footer.module.css";
-import { FaLinkedin } from "react-icons/fa";
 import Link from "next/link";
+import { FaLinkedin } from "react-icons/fa";
+
+import styles from "./Footer.module.css";
 
 export default function FooterSection() {
   return (

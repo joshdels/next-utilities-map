@@ -8,18 +8,6 @@
   text-align: center;
 }
 
-.process-title {
-  font-weight: 900;
-  text-transform: capitalize;
-}
-
-.process-tagline {
-  color: var(--color-gray-500);
-  font-size: 1.25rem;
-  font-weight: 500;
-  margin-bottom: 1rem;
-}
-
 .container-card {
   display: grid;
   gap: 1rem;
@@ -30,10 +18,6 @@
 }
 
 @media screen and (width >= 480px) {
-  .process-title {
-    font-size: 2.5rem;
-  }
-
   .container {
     height: auto;
     min-height: auto;
@@ -46,10 +30,6 @@
 }
 
 @media screen and (width >= 768px) {
-  .process-title {
-    font-size: 2.75rem;
-  }
-
   .container {
     height: auto;
     min-height: 100vh;
@@ -61,10 +41,6 @@
 }
 
 @media screen and (width >= 1200px) {
-  .process-title {
-    font-size: 3.75rem;
-  }
-
   .container-card {
     grid-template-columns: repeat(4, 1fr);
   }

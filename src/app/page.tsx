@@ -8,6 +8,7 @@ import ProcessSection from "@/features/homepage/process/Process";
 import NavbarSection from "@/shared/components/navbar/Navbar";
 import ProblemSection from "@/features/homepage/problem/Problem";
 import StakesSection from "@/features/homepage/stakes/Stakes";
+import ContactSection from "@/features/homepage/contact/Contact";
 
 export default function Homepage() {
   return (
@@ -19,6 +20,7 @@ export default function Homepage() {
       <StakesSection />
       <InteractiveMap />
       <PricingSection />
+      <ContactSection />
       <FooterSection />
     </div>
   );

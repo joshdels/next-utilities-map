@@ -35,10 +35,6 @@
   transition: color 0.2s;
 }
 
-.navbar-pages {
-  display: none;
-}
-
 .navbar-menu {
   display: none;
 }
@@ -95,10 +91,6 @@
 }
 
 @media screen and (width >= 480px) {
-  .navbar-pages {
-    display: none;
-  }
-
   .navbar-menu {
     display: none;
   }
@@ -109,16 +101,11 @@
 }
 
 @media screen and (width >= 768px) {
-  .navbar-pages {
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-  }
-
   .navbar-menu {
+    align-items: center;
     display: flex;
     flex-direction: row;
-    gap: 1rem;
+    gap: 2em;
   }
 
   .mobile-menu {
@@ -127,12 +114,6 @@
 }
 
 @media screen and (width >= 1200px) {
-  .navbar-pages {
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-  }
-
   .navbar-menu {
     display: flex;
     flex-direction: row;

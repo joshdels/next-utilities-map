@@ -1,13 +1,15 @@
-import { LucideIcon } from "lucide-react";
-import styles from "./Card.module.css";
 import Image from "next/image";
+import { LucideIcon } from "lucide-react";
+import { IconType } from "react-icons";
 import { formatDate } from "@/utils/date";
+import styles from "./Card.module.css";
 
 export interface CardProps {
   index?: number;
   title: string;
-  icon?: LucideIcon;
+  icon?: LucideIcon | IconType;
   definition?: string;
+  variant?: "blue" | "red";
 }
 
 interface CardPriceProps extends CardProps {
@@ -24,17 +26,18 @@ interface CardStudyProps extends CardPriceProps {
   isHighlight?: boolean;
 }
 
-export function CardProcess({
+export function Card({
   index,
   title,
   definition,
   icon: Icon,
+  variant = "blue",
 }: CardProps) {
   return (
     <div className={styles.card}>
-      <span className={styles["card-index"]}>0{index}</span>
+      {index && <span className={styles["card-index"]}>0{index}</span>}
       {Icon && (
-        <span className={styles["card-icon"]}>
+        <span className={`styles["card-icon"] ${styles[variant]}`}>
           <Icon size={60} />
         </span>
       )}

@@ -1,7 +1,31 @@
 .heading {
   font-size: 2rem;
-  font-weight: 900;
-  margin-top: 2rem;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+}
+
+.sub-heading {
+  color: var(--color-gray-500);
+  font-size: 1.1rem;
+  letter-spacing: 0.3rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.description {
+  color: var(--color-gray-600);
+  font-size: 1.1rem;
+  letter-spacing: 0.1rem;
+  max-width: 70rem;
+  text-align: center;
+}
+
+.quote {
+  color: var(--color-gray-500);
+  font-size: 1.2rem;
+  letter-spacing: 0.15rem;
+  padding: 2rem 0;
   text-align: center;
 }
 
@@ -17,8 +41,15 @@
   }
 }
 
-@media screen and (width >= 1200px) {
+@media screen and (width >= 1024px) {
   .heading {
     font-size: 3.5rem;
+  }
+
+  .description {
+    color: var(--color-gray-600);
+    font-size: 1.3rem;
+    letter-spacing: 0.1rem;
+    text-align: center;
   }
 }

@@ -1,15 +1,17 @@
 .container {
   align-items: flex-start;
+  align-items: center;
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   max-width: 60rem;
+  padding: 1rem;
 }
 
 .index {
   align-items: center;
-  border: 1px solid var(--color-gray-500);
+  background-color: var(--color-blue-600);
   border-radius: 50%;
-  color: var(--color-gray-500);
+  color: white;
   display: flex;
   font-size: 1rem;
   font-weight: 600;
@@ -19,9 +21,11 @@
 }
 
 .content {
+  align-self: flex-start;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  text-align: start;
 }
 
 .content h3 {
@@ -31,9 +35,76 @@
 }
 
 .content p {
+  align-self: flex-start;
   color: var(--color-gray-500);
   font-size: 0.95rem;
   line-height: 1.5;
   margin: 0;
   text-align: start;
+}
+
+.text {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-align: start;
+}
+
+.text h1 {
+  color: var(--color-gray-700);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+  margin: 0;
+}
+
+.text h2 {
+  color: var(--color-gray-600);
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+.list-icon {
+  align-items: center;
+  background-color: var(--color-red-100);
+  border-radius: 0.75rem;
+  color: var(--color-red-600);
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.icon {
+  height: 3rem;
+  width: 3rem;
+}
+
+@media screen and (width >= 768px) {
+  .text h1 {
+    font-size: 1.3rem;
+  }
+
+  .text h2 {
+    font-size: 1.1rem;
+  }
+
+  .container {
+    gap: 2rem;
+  }
+}
+
+@media screen and (width >= 1024px) {
+  .text h1 {
+    font-size: 1.3rem;
+  }
+
+  .text h2 {
+    font-size: 1.1rem;
+  }
+
+  .container {
+    gap: 2rem;
+  }
 }

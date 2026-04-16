@@ -1,5 +1,4 @@
 import { FilePlus, RefreshCcw } from "lucide-react";
-import "@/shared/styles/wrappers.css";
 import styles from "./Converter.module.css";
 import {
   ConverterDefinitionCard,

@@ -20,16 +20,14 @@ export default function NavbarSection() {
               </Link>
             </div>
 
-            <div className={styles["navbar-pages"]}>
+            <div className={styles["navbar-menu"]}>
               <Link href={"/case-study"}>
                 <span className={styles["navbar-brand"]}>Case Study</span>
               </Link>
               <Link href={"/tools"}>
                 <span className={styles["navbar-brand"]}>Tools</span>
               </Link>
-            </div>
 
-            <div className={styles["navbar-menu"]}>
               <Link href={"/login"}>
                 <button className={styles["navbar-primary-button"]}>
                   <Lock size={15} />
