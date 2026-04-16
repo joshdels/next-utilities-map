@@ -19,7 +19,7 @@ export const problems: CardProps[] = [
     title: "New staff locked out",
     icon: FiUserMinus,
     definition:
-      "New hires can't access or understand the network — onboarding stalls before it starts.",
+      "New hires can't access or understand the network — onboarding slows down before it starts.",
   },
   {
     title: "GIS team in backlog",

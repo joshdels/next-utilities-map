@@ -1,4 +1,6 @@
 import Link from "next/link";
+import ContactForm from "./Contactform";
+import styles from "./Contact.module.css";
 
 export default function ContactSection() {
   return (
@@ -31,6 +33,10 @@ export default function ContactSection() {
             <p className="quote">
               No commitment. No sales pitch. Just a real answer about your data.
             </p>
+
+            <div className={styles.divider}>not a call person?</div>
+
+            <ContactForm />
           </div>
         </div>
       </div>

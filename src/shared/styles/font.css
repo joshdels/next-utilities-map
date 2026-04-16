@@ -17,6 +17,7 @@
   color: var(--color-gray-600);
   font-size: 1.1rem;
   letter-spacing: 0.1rem;
+  margin: 0 auto;
   max-width: 70rem;
   text-align: center;
 }
