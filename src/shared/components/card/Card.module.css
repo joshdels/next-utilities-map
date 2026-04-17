@@ -97,11 +97,19 @@
 
 .card-price li {
   box-sizing: border-box;
+  color: var(--color-gray-600);
+  font-size: 1.1rem;
   list-style: none;
   list-style-type: disc;
   margin-left: 1.5rem;
-  padding: 0.2rem;
+  padding: 0.3rem;
   width: 100%;
+}
+
+.card-price li::marker {
+  color: green;
+  content: "✓ ";
+  font-weight: bold;
 }
 
 .card-study {

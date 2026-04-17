@@ -85,7 +85,7 @@ export default function ContactForm() {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="you@example.com"
+            placeholder="your@example.com"
             autoComplete="email"
             className={styles.input}
           />
@@ -125,14 +125,6 @@ export default function ContactForm() {
           </p>
         )}
 
-        <Script
-          src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-          strategy="afterInteractive"
-          onLoad={() => setTurnstileReady(true)}
-        />
-
-        <div ref={turnstileRef}></div>
-
         <button
           className="primary-button"
           onClick={() => handleSubmit(undefined, captchaToken)}
@@ -140,6 +132,16 @@ export default function ContactForm() {
         >
           {loading ? "Sending..." : "Send Your Problem"}
         </button>
+
+        <Script
+          src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+          strategy="afterInteractive"
+          onLoad={() => setTurnstileReady(true)}
+        />
+
+        <br />
+
+        <div ref={turnstileRef}></div>
       </div>
 
       <p className="quote">We typically respond within 1 - 2 business day.</p>

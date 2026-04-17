@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { List } from "@/shared/components/list/List";
 import { CardPrice } from "@/shared/components/card/Card";
 import { lists, offers } from "@/mock/pricing";
@@ -32,6 +31,11 @@ export default function PricingSection() {
               <CardPrice key={index} index={index + 1} {...item} />
             ))}
           </div>
+
+          <p className="quote">
+            Most projects range between <strong>$2-$8k</strong> depending on
+            size — you'll get a fixed quote after your discovery call.
+          </p>
         </div>
       </div>
     </div>

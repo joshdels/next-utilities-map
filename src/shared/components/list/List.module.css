@@ -37,7 +37,7 @@
 .content p {
   align-self: flex-start;
   color: var(--color-gray-500);
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   line-height: 1.5;
   margin: 0;
   text-align: start;

@@ -47,17 +47,11 @@ export function Card({
   );
 }
 
-export function CardPrice({
-  title,
-  description,
-  features,
-  isHighlight,
-}: CardPriceProps) {
+export function CardPrice({ title, description, features }: CardPriceProps) {
   return (
     <div className={styles["card-price"]}>
-      {isHighlight && <span>Most popular</span>}
-      <h1>{title}</h1>
-      <p>{description}</p>
+      <h1 className="heading">{title}</h1>
+      <p className="description">{description}</p>
       <ul>
         {features?.map((step, index) => (
           <li key={index}>{step}</li>

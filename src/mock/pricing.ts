@@ -25,25 +25,13 @@ export const lists: PricingProps[] = [
 
 export const offers: PricingProps[] = [
   {
-    title: "One-Time Project",
+    title: "CAD to GIS Conversion",
     description:
-      "CAD cleanup, GIS conversion, and a live WebGIS viewer scoped and priced per project.",
+      "Your utility network — cleaned up, converted, and live in a shareable web map. Fixed price, fast turnaround, full handoff.",
     features: [
-      "Fixed price after scope approval",
-      "Delivered in 2-4 weeks",
-      "Full data handoff included",
-      "Starting at $500",
+      "Delivered in few weeks",
+      "Full data handoff, yours to keep",
+      "No licenses or software required",
     ],
-  },
-  {
-    title: "Project + Maintenance",
-    description: "Everything above plus hosting, updates, and ongoing support.",
-    features: [
-      "Fixed project price",
-      "Monthly maintenance plan",
-      "Dedicated Support",
-      "Starting at $3,000 after delivery",
-    ],
-    isHighlight: true,
   },
 ];

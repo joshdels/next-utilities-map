@@ -12,14 +12,18 @@ export default function HeroSection() {
           <p className="sub-heading">CAD to GIS. Done right.</p>
 
           <h1 className={styles["hero-title"]}>
-            Your team deserves maps{"  "}
+            Turn your water utility CAD drawings into a live Map your team
+            actually use{"  "}
           </h1>
-          <span className={styles["hero-subtitle"]}>they can actually use</span>
+          <span className={styles["hero-subtitle"]}>
+            {" "}
+            Delivered in weeks, not months
+          </span>
 
           <p className={styles["hero-description"]}>
-            We turn your water district's CAD drawings into a live, shareable
-            GIS map — scoped, priced, and delivered in 2-4 weeks. No licenses.
-            No training. No waiting.
+            We convert your CAD drawings into a live, shareable GIS map —
+            scoped, priced, and delivered in a few weeks. No licenses. No
+            training. No waiting.
           </p>
 
           <div className={styles["hero-actions"]}>
@@ -27,7 +31,7 @@ export default function HeroSection() {
               className={styles["hero-primary-button"]}
               onClick={() => scrollToSection("contact")}
             >
-              Book a Free Discovery Call
+              Book a Discovery Call Now
             </button>
 
             <button

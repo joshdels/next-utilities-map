@@ -1,4 +1,4 @@
-import { FileX, Folders } from "lucide-react";
+import { CircleQuestionMark, FileX, Folders } from "lucide-react";
 import { FiUserMinus } from "react-icons/fi";
 import { WiTime4 } from "react-icons/wi";
 
@@ -21,8 +21,8 @@ export const stakes: ListProblemProps[] = [
     subtitle: "who can't access or understand the network",
   },
   {
-    title: "Your GIS team",
-    icon: Folders,
-    subtitle: "buried in backlog instead of real work",
+    title: "Utility Asset",
+    icon: CircleQuestionMark,
+    subtitle: "found only after the emergency",
   },
 ];
