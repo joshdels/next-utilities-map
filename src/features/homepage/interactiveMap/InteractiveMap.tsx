@@ -1,6 +1,7 @@
 import Link from "next/link";
 import DemoMapPreview from "@/features/demo/DemoMapPreview";
 import styles from "./InteractiveMap.module.css";
+import DemoPage from "@/app/demo/page";
 
 export default function InteractiveMap() {
   return (
@@ -21,9 +22,7 @@ export default function InteractiveMap() {
           </Link>
 
           <div className={styles["container-map"]}>
-            <div className={styles["container-map-border"]}>
-              <DemoMapPreview />
-            </div>
+            <DemoPage />
           </div>
         </div>
       </div>
